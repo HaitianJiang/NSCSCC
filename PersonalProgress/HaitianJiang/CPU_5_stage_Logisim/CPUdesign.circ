@@ -5832,4 +5832,11 @@
       <a name="negate1" val="false"/>
     </comp>
   </circuit>
+  <circuit name="centrolControl">
+    <a name="circuit" val="centrolControl"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="Dialog plain 12"/>
+    <a name="clabelcolor" val="#000000"/>
+  </circuit>
 </project>
