@@ -83,7 +83,7 @@ begin
             else
                 ALUresult <= 0;
         end
-        4'b1010:    // sllv
+        4'b1010:    // sllv 10
         begin
             ALUresult <= A << B;
         end

@@ -28,10 +28,10 @@ parameter PERIOD  = 10;
 
 // datapath_1 Inputs
 reg   clk                                  = 0 ;
-reg   rst_n                                = 0 ;
+reg   rst_n                                = 1 ;
 
 // datapath_1 Outputs
-wire  [31:0]  instruction                  ;
+
 
 
 initial
@@ -41,15 +41,12 @@ end
 
 initial
 begin
-    #(PERIOD*2) rst_n  =  1;
+    #(PERIOD*2) rst_n  =  0;
 end
 
 datapath_1  u_datapath_1 (
-    .clk                     ( clk                 ),
-    .rst_n                   ( rst_n               ),
-
-    .instruction             ( instruction  [31:0] )
+    .clk                     ( clk     ),
+    .rst_n                   ( rst_n   )
 );
-
 
 endmodule
