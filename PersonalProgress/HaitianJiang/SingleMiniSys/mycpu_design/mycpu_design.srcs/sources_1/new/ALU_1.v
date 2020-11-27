@@ -30,6 +30,7 @@ module ALU_1(
            output reg [31:0] ALUresult
        );
 
+// convert A and B to signed numbers
 wire signed [31:0] A_signed = A;
 wire signed [31:0] B_signed = B;
 
@@ -68,7 +69,7 @@ begin
         begin
             ALUresult <= ~(A | B);
         end
-        4'b1000:    // slt //********signed********//
+        4'b1000:    // slt // note:********signed********//
         begin
             if(A_signed < B_signed)
                 ALUresult <= 1;
@@ -82,7 +83,7 @@ begin
             else
                 ALUresult <= 0;
         end
-        4'b1010:    // sllv
+        4'b1010:    // sllv 10
         begin
             ALUresult <= A << B;
         end
@@ -90,11 +91,11 @@ begin
         begin
             ALUresult <= A >> B;
         end
-        4'b1100:    // srav //******signed*******//
+        4'b1100:    // srav // note: ******signed*******//
         begin
             ALUresult <= A_signed >>> B;
         end
-        default:   
+        default:
         begin
             ALUresult <= 0;
         end
