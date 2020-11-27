@@ -2,3 +2,9 @@ Running: xsim.dir/tb_datapath_1_behav/xsimk.exe -simmode gui -wdb tb_datapath_1_
 Design successfully loaded
 Design Loading Memory Usage: 5872 KB (Peak: 5872 KB)
 Design Loading CPU Usage: 30 ms
+<<<<<<< Updated upstream
+=======
+Simulation completed
+Simulation Memory Usage: 6812 KB (Peak: 6812 KB)
+Simulation CPU Usage: 62 ms
+>>>>>>> Stashed changes
