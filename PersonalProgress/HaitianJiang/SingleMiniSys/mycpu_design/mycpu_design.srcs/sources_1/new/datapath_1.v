@@ -92,7 +92,7 @@ reg_files_1  u_reg_files_1 (
 wire   [3:0]  ALUop;
 
 // ALU_1 Outputs
-// wire  [31:0]  ALUresult = writeData; // 【】【为什么不能用?】
+// wire  [31:0]  ALUresult = writeData; // 【不能用！传输方向不对】
 
 ALU_1  u_ALU_1 (
            .A                       ( A           ),
