@@ -30,7 +30,7 @@ module control_1(
 
 always @(*)
 begin
-    if(op == 0)
+    if(op == 6'b0)
     begin
         case (func)
             6'b100000:  // add
