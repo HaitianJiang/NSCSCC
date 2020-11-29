@@ -29,13 +29,21 @@ module datapath_1(
 
 /******** PC ********/
 
+// pc_1 Inputs
+wire  Jrn;
+wire  [31:0]  JrPC;
+
 // pc_1 Outputs
 wire  [31:0]  pcOld;
 
 pc_1  u_pc_1 (
           .clk                     ( clk     ),
           .rst_n                   ( rst_n   ),
-          .pcNew                   ( pcOld   ), // pcNew = pcOld + 4; no selection
+
+          .pcOrigin                ( pcOld   ),
+          .JrPC                    ( JrPC    ),
+
+          .Jrn                     ( Jrn     ),
 
           .pcOld                   ( pcOld   )
       );
@@ -69,8 +77,9 @@ wire  [31:0]  ALUresult;
 wire   RegWrite;
 
 // reg_files_1 Outputs
-wire  [31:0]  A;
-wire  [31:0]  B;
+wire  [31:0]  A;    // rs
+wire  [31:0]  B;    // rt
+assign JrPC = A;
 
 reg_files_1  u_reg_files_1 (
                  .clk                     ( clk         ),
@@ -125,7 +134,8 @@ control_1  u_control_1 (
 
                .RegWrite                ( RegWrite   ),
                .Sftmd                   ( Sftmd      ),
-               .ALUop                   ( ALUop      )
+               .ALUop                   ( ALUop      ),
+               .Jrn                     ( Jrn        )
            );
 
 assign result = ALUresult;
