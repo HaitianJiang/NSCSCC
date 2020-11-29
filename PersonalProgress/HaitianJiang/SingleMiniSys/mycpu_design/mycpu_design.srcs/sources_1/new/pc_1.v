@@ -23,12 +23,12 @@
 module pc_1(
            input clk,
            input rst_n,
+           // pc data
+           input [31:0] pcOrigin,  // The PC value is from pcOld.
+           input [31:0] JrPC,   // jr instruction,from reg files.
 
-           input [31:0] pcNew, // The PC value from outside.
-           // input [31:0] pcData2
-           // input [31:0] pcData3
-           // input [31:0] pcData4
-           // input some control signals
+           // pc control
+           input Jrn,   // jr instruction.
 
            output [31:0] pcOld
        );
@@ -36,6 +36,10 @@ module pc_1(
 
 reg [31:0] pc = 0;
 assign pcOld = pc;
+
+wire [31:0] pcSelect; // new pc data
+
+assign pcSelect = (Jrn == 0) ? (pcOrigin + 4): JrPC;
 
 // Update PC register
 always @(posedge clk)
@@ -46,7 +50,7 @@ begin
     end
     else
     begin
-        pc <= pcNew + 4;
+        pc <= pcSelect;
     end
 end
 
