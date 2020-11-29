@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"tb_datapath_1_func_impl.v" \
+"../../../../../mycpu_design.srcs/sim_1/new/tb_datapath_1.v" \
+
+# Do not sort compile order
+nosort

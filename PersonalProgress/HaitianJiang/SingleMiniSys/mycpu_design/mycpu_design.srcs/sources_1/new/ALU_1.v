@@ -24,8 +24,10 @@ module ALU_1(
            // data
            input [31:0] A,
            input [31:0] B,
+           input [4:0] shamt,
            // control
            input [3:0] ALUop,
+           input Sftmd, // shift instruction control
 
            output reg [31:0] ALUresult
        );
@@ -34,6 +36,13 @@ module ALU_1(
 wire signed [31:0] A_signed = A;
 wire signed [31:0] B_signed = B;
 
+
+// for shift instructions
+// select data: if (Sftmd == 1) input shamt else input rs
+wire [31:0] A_or_Shift = (Sftmd == 0) ? A : {27'b0,shamt};
+
+
+/* calculate */
 always @(*)
 begin
     case (ALUop)
@@ -85,15 +94,15 @@ begin
         end
         4'b1010:    // sllv 10
         begin
-            ALUresult <= A << B;
+            ALUresult <= B << A_or_Shift;    // NOTE: not A << B!
         end
         4'b1011:    // srlv
         begin
-            ALUresult <= A >> B;
+            ALUresult <= B >> A_or_Shift;    // NOTE: not A >> B!
         end
         4'b1100:    // srav // note: ******signed*******//
         begin
-            ALUresult <= A_signed >>> B;
+            ALUresult <= B_signed >>> A_or_Shift;    // NOTE: not A_signed >> B!
         end
         default:
         begin

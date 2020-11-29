@@ -92,6 +92,7 @@ reg_files_1  u_reg_files_1 (
 // wire   [31:0]  A;
 // wire   [31:0]  B;
 wire   [3:0]  ALUop;
+wire   Sftmd;
 
 // ALU_1 Outputs
 // wire  [31:0]  ALUresult = writeData; // 【不能用！传输方向不对】
@@ -99,7 +100,10 @@ wire   [3:0]  ALUop;
 ALU_1  u_ALU_1 (
            .A                       ( A           ),
            .B                       ( B           ),
+           .shamt                   ( instruction[10:6]),
+
            .ALUop                   ( ALUop       ),
+           .Sftmd                   ( Sftmd       ),
 
            .ALUresult               ( ALUresult   )
        );
@@ -120,6 +124,7 @@ control_1  u_control_1 (
                .func                    ( instruction[5:0]       ),
 
                .RegWrite                ( RegWrite   ),
+               .Sftmd                   ( Sftmd      ),
                .ALUop                   ( ALUop      )
            );
 

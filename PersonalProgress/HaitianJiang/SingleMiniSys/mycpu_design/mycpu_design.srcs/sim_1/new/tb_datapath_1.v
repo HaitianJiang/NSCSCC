@@ -23,7 +23,7 @@
 module tb_datapath_1;
 
 // datapath_1 Parameters
-parameter PERIOD  = 100;
+parameter PERIOD  = 10;
 
 
 // datapath_1 Inputs
