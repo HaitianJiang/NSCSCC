@@ -33,10 +33,12 @@ module reg_files_1(
            output reg [31:0] B,
 
            /*** write port ***/
-           input [4:0] rW,          // rd or rt
+           input [4:0] rW,          // rd
            input [31:0] writeData,  // data
-           input RegWrite           // if RegWrite == 1,you can write data to reg files
+           input RegWrite,          // if RegWrite == 1,you can write data to reg files
 
+           /*** I-type input control ***/
+           input RegDst // 1: R-type destination is rd; 0: I-type dst is rt
        );
 
 // reg files
@@ -55,14 +57,16 @@ begin
 end
 
 /******* write operation *******/
+wire [4:0] rW_select;
+assign rW_select = (RegDst == 1)? rW: rB;
 
 always @(posedge clk) // sequential logic
 begin
     if(rst_n == 0)  // reset is invalid
     begin
-        if((RegWrite == 1'b1) && (rW != 5'b0))  // write is valid and address is not equal zero
+        if((RegWrite == 1'b1) && (rW_select != 5'b0))  // write is valid and address is not equal zero
         begin
-            register[rW] <= writeData;
+            register[rW_select] <= writeData;
         end
         else
             ;

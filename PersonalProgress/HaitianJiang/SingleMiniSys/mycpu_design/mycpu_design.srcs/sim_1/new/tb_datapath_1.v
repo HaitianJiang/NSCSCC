@@ -23,7 +23,7 @@
 module tb_datapath_1;
 
 // datapath_1 Parameters
-parameter PERIOD  = 10;
+parameter PERIOD  = 20;     // clk 10MHz
 
 
 // datapath_1 Inputs

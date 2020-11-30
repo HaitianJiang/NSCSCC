@@ -49,7 +49,9 @@ pc_1  u_pc_1 (
       );
 
 
+///////////////////////////////////
 /******** Instruction ROM ********/
+///////////////////////////////////
 
 // blk_mem_gen_0 Inputs
 ////////// wire  [13:0]  addra  = pcOld[15:2];
@@ -65,7 +67,10 @@ blk_mem_gen_0  u_blk_mem_gen_0 (
                );
 
 
+/////////////////////////////
 /******** Reg Files ********/
+/////////////////////////////
+
 
 // reg_files_1 Inputs
 wire  [31:0]  ALUresult;
@@ -75,6 +80,7 @@ wire  [31:0]  ALUresult;
 /////// wire   [4:0]  rW = instruction[15:11];
 /////// wire   [31:0]  writeData = ALUresult;
 wire   RegWrite;
+wire   RegDst_in;
 
 // reg_files_1 Outputs
 wire  [31:0]  A;    // rs
@@ -90,12 +96,15 @@ reg_files_1  u_reg_files_1 (
                  .writeData               ( ALUresult   ),
                  .RegWrite                ( RegWrite    ),
 
+                 .RegDst                  ( RegDst_in   ),
+
                  .A                       ( A           ),
                  .B                       ( B           )
              );
 
-
+///////////////////////
 /******** ALU ********/
+///////////////////////
 
 // ALU_1 Inputs
 // wire   [31:0]  A;
@@ -103,8 +112,13 @@ reg_files_1  u_reg_files_1 (
 wire   [3:0]  ALUop;
 wire   Sftmd;
 
+wire   [15:0] imm = instruction[15:0];
+wire Lui_in;
+wire ALUSrc_in;
+wire Zero_sign_ex_in;
+
 // ALU_1 Outputs
-// wire  [31:0]  ALUresult = writeData; // 【不能用！传输方向不对】
+// wire  [31:0]  ALUresult = writeData; // Note：Error！
 
 ALU_1  u_ALU_1 (
            .A                       ( A           ),
@@ -114,11 +128,19 @@ ALU_1  u_ALU_1 (
            .ALUop                   ( ALUop       ),
            .Sftmd                   ( Sftmd       ),
 
+           /** I-type **/
+           .imm                     ( imm              ),
+           .Lui                     ( Lui_in           ),
+           .ALUSrc                  ( ALUSrc_in        ),
+           .Zero_sign_ex            ( Zero_sign_ex_in  ),
+
            .ALUresult               ( ALUresult   )
        );
 
 
+/////////////////////////////
 /******** controler ********/
+/////////////////////////////
 
 // control_1 Inputs
 ////// wire   [5:0]  op = instruction[31:26];
@@ -127,6 +149,16 @@ ALU_1  u_ALU_1 (
 // control_1 Outputs
 // wire  RegWrite
 // wire  [3:0]  ALUop;
+wire Lui;
+wire RegDst;
+wire ALUSrc;
+wire Zero_sign_ex;
+
+assign RegDst_in = RegDst; // Send to Reg Files
+// send to ALU
+assign Lui_in = Lui;
+assign ALUSrc_in = ALUSrc;
+assign Zero_sign_ex_in = Zero_sign_ex;
 
 control_1  u_control_1 (
                .op                      ( instruction[31:26]         ),
@@ -135,7 +167,12 @@ control_1  u_control_1 (
                .RegWrite                ( RegWrite   ),
                .Sftmd                   ( Sftmd      ),
                .ALUop                   ( ALUop      ),
-               .Jrn                     ( Jrn        )
+               .Jrn                     ( Jrn        ),
+               // I type
+               .Lui                     ( Lui        ),
+               .RegDst                  ( RegDst     ),
+               .ALUSrc                  ( ALUSrc     ),
+               .Zero_sign_ex            ( Zero_sign_ex )
            );
 
 assign result = ALUresult;
