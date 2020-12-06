@@ -37,8 +37,20 @@ xori $17,$8,15	# $17 = ffff_fff7 xor 0000_000f = ffff_fff8
 
 lui $17,100	# $17 = 前16位是64_后16位是0
 
+beq $0,$10,s1	# 0 = 0,jump!
+nop
+nop
+nop
 
+s1:
+addi $10,$10,1	# $10 = 1
+beq $0,$10,s1	# 0 != 1,don't jump
+bne $0,$10,s2	# 0 != 1,jump
+nop
+nop
+nop
 
+s2:
 jr $16	# PC = 4
 
 

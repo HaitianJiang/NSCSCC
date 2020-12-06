@@ -36,7 +36,10 @@ module ALU_1(
            input ALUSrc,        // 1:imm calculate
            input Zero_sign_ex,  // 0:zero extension; 1:sign extension
 
-           output reg [31:0] ALUresult
+           output reg [31:0] ALUresult,
+           // beq bne 
+           output [31:0] offset,    
+           output reg zero  // rs = rt => zero = 1;
        );
 
 // convert A and B to signed numbers
@@ -60,6 +63,9 @@ wire [31:0] imm_input = (Zero_sign_ex == 0)? zero_imm_ex: sign_imm_ex;
 wire [31:0] B_select = (ALUSrc == 0)? B: imm_input;
 assign B_signed = B_select;
 
+// output: (sign extension)offset << 2
+assign offset = imm_input << 2;
+
 /* calculate */
 always @(*)
 begin
@@ -79,6 +85,7 @@ begin
         4'b0011:    // subu
         begin
             ALUresult <= A - B;
+            zero <= ((A-B) == 0)? 1: 0; // beq
         end
         4'b0100:    // and andi
         begin
@@ -134,5 +141,6 @@ begin
         end
     endcase
 end
+
 
 endmodule
