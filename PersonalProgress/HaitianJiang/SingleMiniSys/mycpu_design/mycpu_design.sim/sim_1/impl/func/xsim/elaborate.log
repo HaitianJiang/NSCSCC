@@ -13,9 +13,10 @@ Compiling module unisims_ver.IBUF
 Compiling module unisims_ver.OBUF
 Compiling module unisims_ver.CARRY4
 Compiling module unisims_ver.LUT6
+Compiling module unisims_ver.LUT5
+Compiling module unisims_ver.LUT4
 Compiling module unisims_ver.x_lut3_mux8
 Compiling module unisims_ver.LUT3
-Compiling module unisims_ver.LUT4
 Compiling module xil_defaultlib.ALU_1
 Compiling module unisims_ver.x_lut2_mux4
 Compiling module unisims_ver.LUT2
@@ -71,11 +72,12 @@ Compiling module xil_defaultlib.blk_mem_gen_0_blk_mem_gen_top
 Compiling module xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_4...
 Compiling module xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_4
 Compiling module xil_defaultlib.blk_mem_gen_0
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=8.5,C...
+Compiling module xil_defaultlib.cpu_clk_cpu_clk_clk_wiz
+Compiling module xil_defaultlib.cpu_clk
 Compiling module unisims_ver.x_lut1_mux2
 Compiling module unisims_ver.LUT1(INIT=2'b01)
 Compiling module xil_defaultlib.pc_1
-Compiling module unisims_ver.LUT5
-Compiling module unisims_ver.RAM32M(INIT_A=64'b11100100111001...
 Compiling module unisims_ver.RAM32M
 Compiling module xil_defaultlib.reg_files_1
 Compiling module xil_defaultlib.datapath_1

@@ -21,29 +21,57 @@
 
 
 module datapath_1(
-           input clk,
+           input clk,   // 100MHz 
            input rst_n,
 
            output [31:0] result // 测试syntheses，没有输出的模块是恐怖的
        );
 
+/////////////////////
+/******* clk *******/
+/////////////////////
+
+// cpu_clk Inputs
+// reg   clk;   
+
+// cpu_clk Outputs
+wire  clk_div; // 20Mhz
+
+cpu_clk  u_cpu_clk (
+    .clk_in1                 ( clk        ),
+
+    .clk_out1                ( clk_div    )
+);
+
+//////////////////////
 /******** PC ********/
+//////////////////////
 
 // pc_1 Inputs
 wire  Jrn;
 wire  [31:0]  JrPC;
 
+wire [31:0] offset_in;
+wire zero_in;
+wire Branch_in;
+wire nBranch_in;
+
 // pc_1 Outputs
 wire  [31:0]  pcOld;
 
 pc_1  u_pc_1 (
-          .clk                     ( clk     ),
+          .clk                     ( clk_div     ),
           .rst_n                   ( rst_n   ),
 
           .pcOrigin                ( pcOld   ),
           .JrPC                    ( JrPC    ),
 
           .Jrn                     ( Jrn     ),
+
+          .offset                  ( offset_in  ),
+          .zero                    ( zero_in    ),
+          .Branch                  ( Branch_in  ),
+          .nBranch                 ( nBranch_in ),
 
           .pcOld                   ( pcOld   )
       );
@@ -88,7 +116,7 @@ wire  [31:0]  B;    // rt
 assign JrPC = A;
 
 reg_files_1  u_reg_files_1 (
-                 .clk                     ( clk         ),
+                 .clk                     ( clk_div         ),
                  .rst_n                   ( rst_n       ),
                  .rA                      ( instruction[25:21]          ),
                  .rB                      ( instruction[20:16]          ),
@@ -119,6 +147,11 @@ wire Zero_sign_ex_in;
 
 // ALU_1 Outputs
 // wire  [31:0]  ALUresult = writeData; // Note：Error！
+wire  [31:0]  offset;
+wire  zero;
+
+assign offset_in = offset;
+assign zero_in = zero;
 
 ALU_1  u_ALU_1 (
            .A                       ( A           ),
@@ -134,7 +167,9 @@ ALU_1  u_ALU_1 (
            .ALUSrc                  ( ALUSrc_in        ),
            .Zero_sign_ex            ( Zero_sign_ex_in  ),
 
-           .ALUresult               ( ALUresult   )
+           .ALUresult               ( ALUresult        ),
+           .offset                  ( offset           ),
+           .zero                    ( zero             )
        );
 
 
@@ -153,12 +188,18 @@ wire Lui;
 wire RegDst;
 wire ALUSrc;
 wire Zero_sign_ex;
+wire Branch;
+wire nBranch;
 
-assign RegDst_in = RegDst; // Send to Reg Files
+// send to Reg Files
+assign RegDst_in = RegDst;
 // send to ALU
 assign Lui_in = Lui;
 assign ALUSrc_in = ALUSrc;
 assign Zero_sign_ex_in = Zero_sign_ex;
+// send to pc
+assign Branch_in = Branch;
+assign nBranch_in = nBranch;
 
 control_1  u_control_1 (
                .op                      ( instruction[31:26]         ),
@@ -172,7 +213,10 @@ control_1  u_control_1 (
                .Lui                     ( Lui        ),
                .RegDst                  ( RegDst     ),
                .ALUSrc                  ( ALUSrc     ),
-               .Zero_sign_ex            ( Zero_sign_ex )
+               .Zero_sign_ex            ( Zero_sign_ex ),
+               // beq bne
+               .Branch                  ( Branch     ),
+               .nBranch                 ( nBranch    )
            );
 
 assign result = ALUresult;

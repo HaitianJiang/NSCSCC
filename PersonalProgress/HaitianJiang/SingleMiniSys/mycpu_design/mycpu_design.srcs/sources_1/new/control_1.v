@@ -31,7 +31,9 @@ module control_1(
            output reg Lui,   // lui instruction
            output reg RegDst,
            output reg ALUSrc,
-           output reg Zero_sign_ex
+           output reg Zero_sign_ex,
+           output reg Branch,   // beq
+           output reg nBranch   // bne
        );
 
 always @(*)
@@ -50,6 +52,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b100001:  // addu
@@ -62,6 +66,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b100010:  // sub
@@ -74,6 +80,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b100011:  // subu
@@ -86,6 +94,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b100100:  // and
@@ -98,6 +108,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b100101:  // or
@@ -110,6 +122,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b100110:  // xor
@@ -122,6 +136,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b100111:  // nor
@@ -134,6 +150,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b101010:  // slt
@@ -146,6 +164,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b101011:  // sltu
@@ -158,6 +178,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b000100:  // sllv
@@ -170,6 +192,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b000110:  // srlv
@@ -182,6 +206,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b000111:  // srav
@@ -194,6 +220,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b000000:  // sll
@@ -206,6 +234,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b000010:  // srl
@@ -218,6 +248,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b000011:  // sra
@@ -230,6 +262,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 6'b001000:  // jr
@@ -242,6 +276,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
 
                 end
                 default:
@@ -254,6 +290,8 @@ begin
                     RegDst <= 1;
                     ALUSrc <= 0;
                     Zero_sign_ex <= 0;
+                    Branch <= 0;
+                    nBranch <= 0;
                 end
             endcase
         end
@@ -270,6 +308,8 @@ begin
             RegDst <= 0;
             ALUSrc <= 1;
             Zero_sign_ex <= 1;
+            Branch <= 0;
+            nBranch <= 0;
         end
         6'b001001:  // addiu
         begin
@@ -281,6 +321,8 @@ begin
             RegDst <= 0;
             ALUSrc <= 1;
             Zero_sign_ex <= 1;
+            Branch <= 0;
+            nBranch <= 0;
         end
         6'b001100:  // andi
         begin
@@ -292,6 +334,8 @@ begin
             RegDst <= 0;
             ALUSrc <= 1;
             Zero_sign_ex <= 0;
+            Branch <= 0;
+            nBranch <= 0;
         end
         6'b001101:  // ori
         begin
@@ -303,6 +347,8 @@ begin
             RegDst <= 0;
             ALUSrc <= 1;
             Zero_sign_ex <= 0;
+            Branch <= 0;
+            nBranch <= 0;
         end
         6'b001110:  // xori
         begin
@@ -314,6 +360,8 @@ begin
             RegDst <= 0;
             ALUSrc <= 1;
             Zero_sign_ex <= 0;
+            Branch <= 0;
+            nBranch <= 0;
         end
         6'b001111:  // lui //////// note ////////
         begin
@@ -325,6 +373,8 @@ begin
             RegDst <= 0;
             ALUSrc <= 1;
             Zero_sign_ex <= 0;
+            Branch <= 0;
+            nBranch <= 0;
         end
         6'b001010:  // slti
         begin
@@ -336,6 +386,8 @@ begin
             RegDst <= 0;
             ALUSrc <= 1;
             Zero_sign_ex <= 1;
+            Branch <= 0;
+            nBranch <= 0;
         end
         6'b001011:  // sltiu
         begin
@@ -347,6 +399,34 @@ begin
             RegDst <= 0;
             ALUSrc <= 1;
             Zero_sign_ex <= 0;
+            Branch <= 0;
+            nBranch <= 0;
+        end
+        6'b000100:  // beq
+        begin
+            ALUop <= 4'b0011;
+            RegWrite <= 0;
+            Sftmd <= 0;
+            Jrn <= 0;
+            Lui <= 0;
+            RegDst <= 0;
+            ALUSrc <= 0;
+            Zero_sign_ex <= 1;
+            Branch <= 1;
+            nBranch <= 0;
+        end
+        6'b000101:  // bne
+        begin
+            ALUop <= 4'b0011;
+            RegWrite <= 0;
+            Sftmd <= 0;
+            Jrn <= 0;
+            Lui <= 0;
+            RegDst <= 0;
+            ALUSrc <= 0;
+            Zero_sign_ex <= 1;
+            Branch <= 0;
+            nBranch <= 1;
         end
 
         default:
@@ -359,6 +439,8 @@ begin
             RegDst <= 0;
             ALUSrc <= 0;
             Zero_sign_ex <= 0;
+            Branch <= 0;
+            nBranch <= 0;
         end
     endcase
 end
