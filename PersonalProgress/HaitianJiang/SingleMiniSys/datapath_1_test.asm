@@ -45,13 +45,17 @@ nop
 s1:
 addi $10,$10,1	# $10 = 1
 beq $0,$10,s1	# 0 != 1,don't jump
+bne $0,$0,s3	# not jump
 bne $0,$10,s2	# 0 != 1,jump
 nop
 nop
 nop
 
+
 s2:
 jr $16	# PC = 4
+
+s3:
 
 
 

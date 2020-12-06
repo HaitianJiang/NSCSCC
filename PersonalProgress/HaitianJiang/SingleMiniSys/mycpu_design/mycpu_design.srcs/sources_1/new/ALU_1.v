@@ -39,7 +39,7 @@ module ALU_1(
            output reg [31:0] ALUresult,
            // beq bne 
            output [31:0] offset,    
-           output reg zero  // rs = rt => zero = 1;
+           output zero  // ALUresult == 0 => zero = 1;
        );
 
 // convert A and B to signed numbers
@@ -85,7 +85,7 @@ begin
         4'b0011:    // subu
         begin
             ALUresult <= A - B;
-            zero <= ((A-B) == 0)? 1: 0; // beq
+            // zero <= ((A-B) == 0)? 1: 0; // beq
         end
         4'b0100:    // and andi
         begin
@@ -142,5 +142,6 @@ begin
     endcase
 end
 
+assign zero = (ALUresult == 0)? 1: 0;
 
 endmodule

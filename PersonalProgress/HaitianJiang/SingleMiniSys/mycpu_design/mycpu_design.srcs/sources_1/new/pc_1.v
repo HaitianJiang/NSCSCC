@@ -67,25 +67,27 @@ end
 reg [31:0] pcSelect; // new pc data
 always @(*)
 begin
-    case({Jrn,Branch,nBranch})
-        3'b000: // pc + 4
+    case({Jrn,isBranch})
+        2'b00: // pc + 4
             pcSelect <= pcOrigin + 4;
-        3'b100: // jr
+        2'b10: // jr
             pcSelect <= JrPC;
-        3'b010: // beq
-            pcSelect <= pcOrigin + 4 + offset - 8;  /**** NOTE ****/
-        3'b001: // bne // fetch instruction delays 2 clock cycles,so sub 8
-            pcSelect <= pcOrigin + 4 + offset - 8;  /**** NOTE ****/
+        // fetching 1 instruction wastes 2 clock cycles(memory), and
+        // executing the instruction needs 1 clock cycle(CPU).
+        // NOTE:the frequency of two clocks is different. 
+        2'b01: // beq bne
+            pcSelect <= pcOrigin + 4 + offset;    
         default:
             pcSelect <= 0;
     endcase
 end
 
 
+
 // Update PC register
 always @(posedge clk)
 begin
-    if(rst_n == 1) // Xilinx 官方推荐：reset 高电平有效
+    if(rst_n == 1) // Xilinx suggest：reset high level effective
     begin
         pc <= 0;
     end

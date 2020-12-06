@@ -41,7 +41,7 @@ end
 
 initial
 begin
-    #(PERIOD*2) rst_n  =  0;
+    #(PERIOD*250) rst_n  =  0;
 end
 
 datapath_1  u_datapath_1 (

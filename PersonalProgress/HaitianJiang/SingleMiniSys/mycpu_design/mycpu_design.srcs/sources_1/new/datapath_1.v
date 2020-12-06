@@ -21,11 +21,27 @@
 
 
 module datapath_1(
-           input clk,
+           input clk,   // 100MHz 
            input rst_n,
 
            output [31:0] result // 测试syntheses，没有输出的模块是恐怖的
        );
+
+/////////////////////
+/******* clk *******/
+/////////////////////
+
+// cpu_clk Inputs
+// reg   clk;   
+
+// cpu_clk Outputs
+wire  clk_div; // 20Mhz
+
+cpu_clk  u_cpu_clk (
+    .clk_in1                 ( clk        ),
+
+    .clk_out1                ( clk_div    )
+);
 
 //////////////////////
 /******** PC ********/
@@ -44,7 +60,7 @@ wire nBranch_in;
 wire  [31:0]  pcOld;
 
 pc_1  u_pc_1 (
-          .clk                     ( clk     ),
+          .clk                     ( clk_div     ),
           .rst_n                   ( rst_n   ),
 
           .pcOrigin                ( pcOld   ),
@@ -100,7 +116,7 @@ wire  [31:0]  B;    // rt
 assign JrPC = A;
 
 reg_files_1  u_reg_files_1 (
-                 .clk                     ( clk         ),
+                 .clk                     ( clk_div         ),
                  .rst_n                   ( rst_n       ),
                  .rA                      ( instruction[25:21]          ),
                  .rB                      ( instruction[20:16]          ),
