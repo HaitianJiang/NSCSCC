@@ -29,11 +29,13 @@ module control_1(
            output reg [3:0] ALUop,
            output reg Jrn,   // jr instruction
            output reg Lui,   // lui instruction
-           output reg RegDst,
-           output reg ALUSrc,
-           output reg Zero_sign_ex,
+           output reg RegDst,   // 1:rd R-type 0:rt I-type
+           output reg ALUSrc,   // 1: imm
+           output reg Zero_sign_ex, // 0: zero extension 1:sign extension
            output reg Branch,   // beq
-           output reg nBranch   // bne
+           output reg nBranch,  // bne
+           output reg MemtoReg, // 1: read data from memory
+           output reg MemWrite  // 1: write data to memory
        );
 
 always @(*)
@@ -54,6 +56,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b100001:  // addu
@@ -68,6 +72,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b100010:  // sub
@@ -82,6 +88,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b100011:  // subu
@@ -96,6 +104,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b100100:  // and
@@ -110,6 +120,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b100101:  // or
@@ -124,6 +136,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b100110:  // xor
@@ -138,6 +152,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b100111:  // nor
@@ -152,6 +168,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b101010:  // slt
@@ -166,6 +184,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b101011:  // sltu
@@ -180,6 +200,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b000100:  // sllv
@@ -194,6 +216,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b000110:  // srlv
@@ -208,6 +232,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b000111:  // srav
@@ -222,6 +248,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b000000:  // sll
@@ -236,6 +264,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b000010:  // srl
@@ -250,6 +280,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b000011:  // sra
@@ -264,6 +296,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 6'b001000:  // jr
@@ -278,6 +312,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
 
                 end
                 default:
@@ -292,6 +328,8 @@ begin
                     Zero_sign_ex <= 0;
                     Branch <= 0;
                     nBranch <= 0;
+                    MemtoReg <= 0;
+                    MemWrite <= 0;
                 end
             endcase
         end
@@ -310,6 +348,8 @@ begin
             Zero_sign_ex <= 1;
             Branch <= 0;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
         6'b001001:  // addiu
         begin
@@ -323,6 +363,8 @@ begin
             Zero_sign_ex <= 1;
             Branch <= 0;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
         6'b001100:  // andi
         begin
@@ -336,6 +378,8 @@ begin
             Zero_sign_ex <= 0;
             Branch <= 0;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
         6'b001101:  // ori
         begin
@@ -349,6 +393,8 @@ begin
             Zero_sign_ex <= 0;
             Branch <= 0;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
         6'b001110:  // xori
         begin
@@ -362,6 +408,8 @@ begin
             Zero_sign_ex <= 0;
             Branch <= 0;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
         6'b001111:  // lui //////// note ////////
         begin
@@ -375,6 +423,8 @@ begin
             Zero_sign_ex <= 0;
             Branch <= 0;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
         6'b001010:  // slti
         begin
@@ -388,6 +438,8 @@ begin
             Zero_sign_ex <= 1;
             Branch <= 0;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
         6'b001011:  // sltiu
         begin
@@ -401,6 +453,8 @@ begin
             Zero_sign_ex <= 0;
             Branch <= 0;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
         6'b000100:  // beq
         begin
@@ -414,6 +468,8 @@ begin
             Zero_sign_ex <= 1;
             Branch <= 1;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
         6'b000101:  // bne
         begin
@@ -427,6 +483,38 @@ begin
             Zero_sign_ex <= 1;
             Branch <= 0;
             nBranch <= 1;
+            MemtoReg <= 0;
+            MemWrite <= 0;
+        end
+        6'b100011:  // lw
+        begin
+            ALUop <= 4'b0001;
+            RegWrite <= 1;
+            Sftmd <= 0;
+            Jrn <= 0;
+            Lui <= 0;
+            RegDst <= 0;
+            ALUSrc <= 1;
+            Zero_sign_ex <= 1;
+            Branch <= 0;
+            nBranch <= 0;
+            MemtoReg <= 1;
+            MemWrite <= 0;
+        end
+        6'b101011: // sw
+        begin
+            ALUop <= 4'b0001;
+            RegWrite <= 0;
+            Sftmd <= 0;
+            Jrn <= 0;
+            Lui <= 0;
+            RegDst <= 0;
+            ALUSrc <= 1;
+            Zero_sign_ex <= 1;
+            Branch <= 0;
+            nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 1;
         end
 
         default:
@@ -441,6 +529,8 @@ begin
             Zero_sign_ex <= 0;
             Branch <= 0;
             nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
         end
     endcase
 end
