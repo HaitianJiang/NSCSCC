@@ -9,7 +9,7 @@
 // Project Name:
 // Target Devices:
 // Tool Versions:
-// Description: 仅仅实现了几个简单的R类指令的最简单的数据通路，不与外界交互
+// Description: 
 //
 // Dependencies:
 //
@@ -24,7 +24,7 @@ module datapath_1(
            input clk,   // 100MHz 
            input rst_n,
 
-           output [31:0] result // 测试syntheses，没有输出的模块是恐怖的
+           output [31:0] result // 测试syntheses，没有输出的模块是恐怖的，也是无法综合的
        );
 
 /////////////////////
@@ -102,7 +102,7 @@ blk_mem_gen_0  u_blk_mem_gen_0 (
 
 // reg_files_1 Inputs
 wire  [31:0]  ALUresult;
-
+wire [31:0] ALUorMemData;
 /////// wire   [4:0]  rA = instruction[25:21];
 /////// wire   [4:0]  rB = instruction[20:16];
 /////// wire   [4:0]  rW = instruction[15:11];
@@ -121,7 +121,7 @@ reg_files_1  u_reg_files_1 (
                  .rA                      ( instruction[25:21]          ),
                  .rB                      ( instruction[20:16]          ),
                  .rW                      ( instruction[15:11]          ),
-                 .writeData               ( ALUresult   ),
+                 .writeData               ( ALUorMemData   ),
                  .RegWrite                ( RegWrite    ),
 
                  .RegDst                  ( RegDst_in   ),
@@ -190,6 +190,8 @@ wire ALUSrc;
 wire Zero_sign_ex;
 wire Branch;
 wire nBranch;
+wire MemtoReg;
+wire MemWrite;
 
 // send to Reg Files
 assign RegDst_in = RegDst;
@@ -216,10 +218,38 @@ control_1  u_control_1 (
                .Zero_sign_ex            ( Zero_sign_ex ),
                // beq bne
                .Branch                  ( Branch     ),
-               .nBranch                 ( nBranch    )
+               .nBranch                 ( nBranch    ),
+               // lw sw
+               .MemtoReg                ( MemtoReg   ),
+               .MemWrite                ( MemWrite   )
            );
 
-assign result = ALUresult;
+
+
+
+////////////////////////
+/****** Data RAM ******/
+////////////////////////
+
+wire [31:0] memData;
+
+data_ram  u_data_ram (
+    // NOTE: negedge clk,not posedge clk 可能是吧，目前用上升沿没问题，延迟2个周期
+    // 上升沿读取，上升沿写入
+    .clka                    ( clk          ), 
+
+    .wea                     ( MemWrite     ),
+    .addra                   ( ALUresult[15:2]   ),
+    .dina                    ( B            ),
+
+    .douta                   ( memData      )
+);
+
+// write back
+assign ALUorMemData = (MemtoReg == 1)? memData : ALUresult;
+
+
+assign result = ALUorMemData;
 
 endmodule
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1607265041">
+<GenRun Id="synth_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1607521036">
   <File Type="PA-TCL" Name="datapath_1.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="datapath_1_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="datapath_1_reports.tcl"/>
@@ -52,6 +52,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/ip/data_ram/dmem32.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="datapath_1"/>
@@ -59,14 +65,7 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PSRCDIR/constrs_1/new/datapath_1_pin.xdc">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-      </FileInfo>
-    </File>
     <Config>
-      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/datapath_1_pin.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
@@ -81,5 +80,6 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="cpu_clk"/>
+  <BlockFileSet Type="BlockSrcs" Name="data_ram"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_0"/>
 </GenRun>
