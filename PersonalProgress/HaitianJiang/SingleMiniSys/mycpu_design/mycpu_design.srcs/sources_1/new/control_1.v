@@ -35,7 +35,9 @@ module control_1(
            output reg Branch,   // beq
            output reg nBranch,  // bne
            output reg MemtoReg, // 1: read data from memory
-           output reg MemWrite  // 1: write data to memory
+           output reg MemWrite, // 1: write data to memory
+           output reg Jmp,      // 1: j instruction
+           output reg Jal       // 1: jal instruction
        );
 
 always @(*)
@@ -58,6 +60,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b100001:  // addu
@@ -74,6 +78,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b100010:  // sub
@@ -90,6 +96,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b100011:  // subu
@@ -106,6 +114,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b100100:  // and
@@ -122,6 +132,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b100101:  // or
@@ -138,6 +150,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b100110:  // xor
@@ -154,6 +168,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b100111:  // nor
@@ -170,6 +186,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b101010:  // slt
@@ -186,6 +204,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b101011:  // sltu
@@ -202,6 +222,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b000100:  // sllv
@@ -218,6 +240,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b000110:  // srlv
@@ -234,6 +258,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b000111:  // srav
@@ -250,6 +276,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b000000:  // sll
@@ -266,6 +294,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b000010:  // srl
@@ -282,6 +312,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b000011:  // sra
@@ -298,6 +330,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 6'b001000:  // jr
@@ -314,6 +348,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
 
                 end
                 default:
@@ -330,6 +366,8 @@ begin
                     nBranch <= 0;
                     MemtoReg <= 0;
                     MemWrite <= 0;
+                    Jmp <= 0;
+                    Jal <= 0;
                 end
             endcase
         end
@@ -350,6 +388,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b001001:  // addiu
         begin
@@ -365,6 +405,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b001100:  // andi
         begin
@@ -380,6 +422,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b001101:  // ori
         begin
@@ -395,6 +439,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b001110:  // xori
         begin
@@ -410,6 +456,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b001111:  // lui //////// note ////////
         begin
@@ -425,6 +473,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b001010:  // slti
         begin
@@ -440,6 +490,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b001011:  // sltiu
         begin
@@ -455,6 +507,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b000100:  // beq
         begin
@@ -470,6 +524,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b000101:  // bne
         begin
@@ -485,6 +541,8 @@ begin
             nBranch <= 1;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b100011:  // lw
         begin
@@ -500,6 +558,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 1;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
         6'b101011: // sw
         begin
@@ -515,6 +575,29 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 1;
+            Jmp <= 0;
+            Jal <= 0;
+        end
+        6'b000010:  // J
+        begin
+            ALUop <= 4'b1111;
+            RegWrite <= 0;
+            Sftmd <= 0;
+            Jrn <= 0;
+            Lui <= 0;
+            RegDst <= 0;
+            ALUSrc <= 0;
+            Zero_sign_ex <= 0;
+            Branch <= 0;
+            nBranch <= 0;
+            MemtoReg <= 0;
+            MemWrite <= 0;
+            Jmp <= 1;
+            Jal <= 0;
+        end
+        6'b000011:  // Jal
+        begin
+
         end
 
         default:
@@ -531,6 +614,8 @@ begin
             nBranch <= 0;
             MemtoReg <= 0;
             MemWrite <= 0;
+            Jmp <= 0;
+            Jal <= 0;
         end
     endcase
 end

@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
--- Date        : Wed Dec  9 22:02:04 2020
+-- Date        : Thu Dec 10 20:39:13 2020
 -- Host        : LAPTOP-7F5JLFQ0 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               d:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_stub.vhdl
@@ -15,8 +15,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity blk_mem_gen_0 is
   Port ( 
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    douta : out STD_LOGIC_VECTOR ( 31 downto 0 )
+    rsta : in STD_LOGIC;
+    addra : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    douta : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    rsta_busy : out STD_LOGIC
   );
 
 end blk_mem_gen_0;
@@ -25,7 +27,7 @@ architecture stub of blk_mem_gen_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "clka,addra[13:0],douta[31:0]";
+attribute black_box_pad_pin of stub : architecture is "clka,rsta,addra[31:0],douta[31:0],rsta_busy";
 attribute x_core_info : string;
 attribute x_core_info of stub : architecture is "blk_mem_gen_v8_4_4,Vivado 2020.1";
 begin

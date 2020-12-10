@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Wed Dec  9 21:42:32 2020
+| Date         : Thu Dec 10 19:57:45 2020
 | Host         : LAPTOP-7F5JLFQ0 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file datapath_1_methodology_drc_routed.rpt -pb datapath_1_methodology_drc_routed.pb -rpx datapath_1_methodology_drc_routed.rpx
 | Design       : datapath_1
@@ -23,12 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 39
+             Violations found: 54
 +-----------+------------------+-------------------------------------------+------------+
 | Rule      | Severity         | Description                               | Violations |
 +-----------+------------------+-------------------------------------------+------------+
 | TIMING-17 | Critical Warning | Non-clocked sequential cell               | 38         |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin | 1          |
+| TIMING-20 | Warning          | Non-clocked latch                         | 15         |
 +-----------+------------------+-------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -226,6 +227,81 @@ Related violations: <none>
 TIMING-27#1 Critical Warning
 Invalid primary clock on hierarchical pin  
 A primary clock u_cpu_clk/inst/clk_in1 is created on an inappropriate internal pin u_cpu_clk/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch u_control_1/ALUSrc_reg cannot be properly analyzed as its control pin u_control_1/ALUSrc_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch u_control_1/ALUop_reg[0] cannot be properly analyzed as its control pin u_control_1/ALUop_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch u_control_1/ALUop_reg[1] cannot be properly analyzed as its control pin u_control_1/ALUop_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch u_control_1/ALUop_reg[2] cannot be properly analyzed as its control pin u_control_1/ALUop_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch u_control_1/ALUop_reg[3] cannot be properly analyzed as its control pin u_control_1/ALUop_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch u_control_1/Branch_reg cannot be properly analyzed as its control pin u_control_1/Branch_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch u_control_1/Jrn_reg cannot be properly analyzed as its control pin u_control_1/Jrn_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch u_control_1/Lui_reg cannot be properly analyzed as its control pin u_control_1/Lui_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch u_control_1/MemWrite_reg cannot be properly analyzed as its control pin u_control_1/MemWrite_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch u_control_1/MemtoReg_reg cannot be properly analyzed as its control pin u_control_1/MemtoReg_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch u_control_1/RegDst_reg cannot be properly analyzed as its control pin u_control_1/RegDst_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch u_control_1/RegWrite_reg cannot be properly analyzed as its control pin u_control_1/RegWrite_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch u_control_1/Sftmd_reg cannot be properly analyzed as its control pin u_control_1/Sftmd_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch u_control_1/Zero_sign_ex_reg cannot be properly analyzed as its control pin u_control_1/Zero_sign_ex_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch u_control_1/nBranch_reg cannot be properly analyzed as its control pin u_control_1/nBranch_reg/G is not reached by a timing clock
 Related violations: <none>
 
 

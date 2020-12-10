@@ -36,13 +36,20 @@ module pc_1(
            input Branch,
            input nBranch,
 
+           // J instruction.
+           input [25:0] J_address,
+           input Jmp,
+
            output [31:0] pcOld
        );
 
-
+// pc register
 reg [31:0] pc = 0;
 assign pcOld = pc;
 
+// j instruction
+reg [31:0] pc_plus_4;
+//wire [31:0] pc_J = {PC_plus_4[31:28],J_address,2'b00};
 
 // judge validity of beq/bne instruction
 reg isBranch;
@@ -67,16 +74,21 @@ end
 reg [31:0] pcSelect; // new pc data
 always @(*)
 begin
-    case({Jrn,isBranch})
-        2'b00: // pc + 4
+    case({Jrn,isBranch,Jmp})
+        3'b000: // pc + 4
             pcSelect <= pcOrigin + 4;
-        2'b10: // jr
+        3'b100: // jr
             pcSelect <= JrPC;
         // fetching 1 instruction wastes 2 clock cycles(memory), and
         // executing the instruction needs 1 clock cycle(CPU).
-        // NOTE:the frequency of two clocks is different. 
-        2'b01: // beq bne
-            pcSelect <= pcOrigin + 4 + offset;    
+        // NOTE:the frequency of two clocks is different.
+        3'b010: // beq bne
+            pcSelect <= pcOrigin + 4 + offset;
+        3'b001: // J instruction
+        begin
+            pc_plus_4 <= pcOrigin + 4;
+            pcSelect <= {pc_plus_4[31:28],J_address,2'b00};
+        end
         default:
             pcSelect <= 0;
     endcase

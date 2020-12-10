@@ -43,7 +43,7 @@ begin
 end
 
 
-blk_mem_gen_0  u_blk_mem_gen_0 (
+instROM  u_instROM (
                    .clka                    ( clk    ),
                    .addra                   ( addra   ),
 
