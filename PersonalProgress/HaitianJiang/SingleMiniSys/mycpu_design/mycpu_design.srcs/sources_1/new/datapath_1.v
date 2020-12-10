@@ -111,7 +111,7 @@ assign j_target = instruction[25:0];
 
 // reg_files_1 Inputs
 wire  [31:0]  ALUresult;
-wire [31:0] ALUorMemData;
+reg [31:0] ALUorMemData;
 /////// wire   [4:0]  rA = instruction[25:21];
 /////// wire   [4:0]  rB = instruction[20:16];
 /////// wire   [4:0]  rW = instruction[15:11];
@@ -134,6 +134,8 @@ reg_files_1  u_reg_files_1 (
                  .RegWrite                ( RegWrite    ),
 
                  .RegDst                  ( RegDst_in   ),
+
+                 .Jal                     ( Jal_in      ),
 
                  .A                       ( A           ),
                  .B                       ( B           )
@@ -261,8 +263,20 @@ data_ram  u_data_ram (
           );
 
 // write back
-assign ALUorMemData = (MemtoReg == 1)? memData : ALUresult;
-
+// assign ALUorMemData = (MemtoReg == 1)? memData : ALUresult;
+always @(*) // ALUorMemData 名称不合适了
+begin
+    case({MemtoReg,Jal_in})
+        2'b00:  // other instructions
+            ALUorMemData <= ALUresult;
+        2'b10:  // lw instruction
+            ALUorMemData <= memData;
+        2'b01:  // Jal instruction
+            ALUorMemData <= pcOld + 4;
+        default:
+            ALUorMemData <= 0;
+    endcase
+end
 
 assign result = ALUorMemData;
 

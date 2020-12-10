@@ -598,7 +598,7 @@ begin
         6'b000011: // jal
         begin
             ALUop <= 4'b1111;
-            RegWrite <= 0;
+            RegWrite <= 1;
             Sftmd <= 0;
             Jrn <= 0;
             Lui <= 0;

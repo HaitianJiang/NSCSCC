@@ -38,7 +38,10 @@ module reg_files_1(
            input RegWrite,          // if RegWrite == 1,you can write data to reg files
 
            /*** I-type input control ***/
-           input RegDst // 1: R-type destination is rd; 0: I-type dst is rt
+           input RegDst,     // 1: R-type destination is rd; 0: I-type dst is rt
+
+           // Jal control
+           input Jal    // 1: Jal write data to $31
        );
 
 // reg files
@@ -57,8 +60,23 @@ begin
 end
 
 /******* write operation *******/
-wire [4:0] rW_select;
-assign rW_select = (RegDst == 1)? rW: rB;
+
+// select write address
+reg [4:0] rW_select;
+// assign rW_select = (RegDst == 1)? rW: rB;
+always @(*)
+begin
+    case({RegDst,Jal})
+    2'b00:  // RegDst = 0; rB
+        rW_select <= rB;
+    2'b10:  // RegDst = 1; rW
+        rW_select <= rW;
+    2'b01:  // Jal = 1; $31
+        rW_select <= 5'b11111;
+    default:
+        rW_select <= 0;
+    endcase
+end
 
 always @(posedge clk) // sequential logic
 begin
