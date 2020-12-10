@@ -9,7 +9,7 @@
 // Project Name:
 // Target Devices:
 // Tool Versions:
-// Description: 
+// Description:
 //
 // Dependencies:
 //
@@ -21,7 +21,7 @@
 
 
 module datapath_1(
-           input clk,   // 100MHz 
+           input clk,   // 100MHz
            input rst_n,
 
            output [31:0] result // 测试syntheses，没有输出的模块是恐怖的，也是无法综合的
@@ -32,16 +32,16 @@ module datapath_1(
 /////////////////////
 
 // cpu_clk Inputs
-// reg   clk;   
+// reg   clk;
 
 // cpu_clk Outputs
 wire  clk_div; // 20Mhz
 
 cpu_clk  u_cpu_clk (
-    .clk_in1                 ( clk        ),
+             .clk_in1                 ( clk        ),
 
-    .clk_out1                ( clk_div    )
-);
+             .clk_out1                ( clk_div    )
+         );
 
 //////////////////////
 /******** PC ********/
@@ -55,6 +55,10 @@ wire [31:0] offset_in;
 wire zero_in;
 wire Branch_in;
 wire nBranch_in;
+
+wire [25:0] j_target;
+wire Jmp_in;
+wire Jal_in;
 
 // pc_1 Outputs
 wire  [31:0]  pcOld;
@@ -72,6 +76,10 @@ pc_1  u_pc_1 (
           .zero                    ( zero_in    ),
           .Branch                  ( Branch_in  ),
           .nBranch                 ( nBranch_in ),
+
+          .j_target                ( j_target   ),
+          .Jmp                     ( Jmp_in     ),
+          .Jal                     ( Jal_in     ),
 
           .pcOld                   ( pcOld   )
       );
@@ -94,6 +102,7 @@ blk_mem_gen_0  u_blk_mem_gen_0 (
                    .douta                   ( instruction   )
                );
 
+assign j_target = instruction[25:0];
 
 /////////////////////////////
 /******** Reg Files ********/
@@ -192,6 +201,8 @@ wire Branch;
 wire nBranch;
 wire MemtoReg;
 wire MemWrite;
+wire Jmp;
+wire Jal;
 
 // send to Reg Files
 assign RegDst_in = RegDst;
@@ -202,6 +213,8 @@ assign Zero_sign_ex_in = Zero_sign_ex;
 // send to pc
 assign Branch_in = Branch;
 assign nBranch_in = nBranch;
+assign Jmp_in = Jmp;
+assign Jal_in = Jal;
 
 control_1  u_control_1 (
                .op                      ( instruction[31:26]         ),
@@ -221,9 +234,11 @@ control_1  u_control_1 (
                .nBranch                 ( nBranch    ),
                // lw sw
                .MemtoReg                ( MemtoReg   ),
-               .MemWrite                ( MemWrite   )
+               .MemWrite                ( MemWrite   ),
+               // J Jal
+               .Jmp                    ( Jmp        ),
+               .Jal                    ( Jal        )
            );
-
 
 
 
@@ -234,16 +249,16 @@ control_1  u_control_1 (
 wire [31:0] memData;
 
 data_ram  u_data_ram (
-    // NOTE: negedge clk,not posedge clk 可能是吧，目前用上升沿没问题，延迟2个周期
-    // 上升沿读取，上升沿写入
-    .clka                    ( clk          ), 
+              // NOTE: negedge clk,not posedge clk 可能是吧，目前用上升沿没问题，延迟2个周期
+              // 上升沿读取，上升沿写入
+              .clka                    ( clk          ),
 
-    .wea                     ( MemWrite     ),
-    .addra                   ( ALUresult[15:2]   ),
-    .dina                    ( B            ),
+              .wea                     ( MemWrite     ),
+              .addra                   ( ALUresult[15:2]   ),
+              .dina                    ( B            ),
 
-    .douta                   ( memData      )
-);
+              .douta                   ( memData      )
+          );
 
 // write back
 assign ALUorMemData = (MemtoReg == 1)? memData : ALUresult;

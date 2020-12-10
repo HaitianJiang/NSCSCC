@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1607521036">
   <File Type="PA-TCL" Name="datapath_1.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="datapath_1_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="datapath_1_reports.tcl"/>
   <File Type="RDS-RDS" Name="datapath_1.vds"/>
   <File Type="RDS-UTIL" Name="datapath_1_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="datapath_1_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="datapath_1.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="datapath_1_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="datapath_1_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU_1.v">
@@ -80,6 +77,6 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="cpu_clk"/>
-  <BlockFileSet Type="BlockSrcs" Name="data_ram"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="data_ram"/>
 </GenRun>
