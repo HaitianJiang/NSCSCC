@@ -24,7 +24,7 @@ module datapath_1(
            input clk,   // 100MHz
            input rst_n,
 
-           output [31:0] result // 测试syntheses，没有输出的模块是恐怖的，也是无法综合的
+           output [23:0] result // 测试syntheses，没有输出的模块是恐怖的，也是无法综合的
        );
 
 /////////////////////
@@ -278,7 +278,7 @@ begin
     endcase
 end
 
-assign result = ALUorMemData;
+assign result = ALUorMemData[23:0];
 
 endmodule
 

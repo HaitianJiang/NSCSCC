@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Thu Dec 10 23:35:49 2020
-# Process ID: 21648
+# Start of session at: Sun Dec 13 21:00:19 2020
+# Process ID: 13192
 # Current directory: D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.runs/synth_1
 # Command line: vivado.exe -log datapath_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source datapath_1.tcl
 # Log file: D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.runs/synth_1/datapath_1.vds

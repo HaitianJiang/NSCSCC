@@ -1,5 +1,5 @@
 # Compute first twelve Fibonacci numbers and put in array, then print
-# 观察 4，5，2寄存器！
+# 观察 4，5，2，7寄存器！
     .data
 fibs: .word  0 : 20                 # "array" of 20 words to contain fib values
 nouse: .word 0
@@ -36,6 +36,22 @@ Loop_End:
     addi    $t0, $t0, 8             # point to the next address of the lastest fibonacci unit
     sw      $t6, 0($t0)             # *$t0 = $t6
 
+# 20MHz，每秒执行1次
+	li $s2,0x0 # MARS与实际不一样，MARS应该是0x2000
+	li $s3,20
+	Display:
+	
+	
+	li $a2,2000000
+	ds:
+	subi $a2,$a2,1
+	bgt $a2,$0,ds
+	
+	lw $a3,($s2)
+	addi $s2,$s2,4
+	subi $s3,$s3,1
+	bgt $s3,$0,Display 
+	
 Loop_Forever:
     j       Loop_Forever            # loop forever
 

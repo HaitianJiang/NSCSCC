@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1607614645">
+<GenRun Id="impl_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1607864549">
   <File Type="BITSTR-BMM" Name="datapath_1_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="datapath_1_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="datapath_1_timing_summary_init.rpt"/>
@@ -131,7 +131,14 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/tb_datapath_1_pin.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/tb_datapath_1_pin.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
