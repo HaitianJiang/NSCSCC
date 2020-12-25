@@ -1,11 +1,9 @@
 Vivado Simulator 2020.1
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: E:/SoftWare/Program/Vivado202001/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto 9167f9a57e5e4d959b682d7d8e0085b7 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_datapath_1_behav xil_defaultlib.tb_datapath_1 xil_defaultlib.glbl -log elaborate.log 
+Running: E:/SoftWare/Program/Vivado202001/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe -wto 9167f9a57e5e4d959b682d7d8e0085b7 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_mini_SOC_behav xil_defaultlib.tb_mini_SOC xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 14 differs from formal bit length 10 for port 'addra' [D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/datapath_1.v:100]
-WARNING: [VRFC 10-3091] actual bit length 14 differs from formal bit length 10 for port 'addra' [D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/datapath_1.v:259]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -16,19 +14,19 @@ Compiling module unisims_ver.BUFG
 Compiling module xil_defaultlib.cpu_clk_clk_wiz
 Compiling module xil_defaultlib.cpu_clk
 Compiling module xil_defaultlib.pc_1
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module xil_defaultlib.reg_files_1
+Compiling module xil_defaultlib.ALU_1
+Compiling module xil_defaultlib.control_1
+Compiling module xil_defaultlib.CPU_only
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
-Compiling module xil_defaultlib.blk_mem_gen_0
-Compiling module xil_defaultlib.reg_files_1
-Compiling module xil_defaultlib.ALU_1
-Compiling module xil_defaultlib.control_1
+Compiling module xil_defaultlib.inst_rom
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
 Compiling module xil_defaultlib.data_ram
-Compiling module xil_defaultlib.datapath_1
-Compiling module xil_defaultlib.tb_datapath_1
+Compiling module xil_defaultlib.mini_SOC
+Compiling module xil_defaultlib.tb_mini_SOC
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_datapath_1_behav
+Built simulation snapshot tb_mini_SOC_behav

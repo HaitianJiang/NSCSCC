@@ -3,77 +3,97 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_datapath_1_behav.wdb" id="1">
+      <db_ref path="tb_mini_SOC_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_datapath_1" />
+            <top_module name="tb_mini_SOC" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="9300000fs"></ZoomStartTime>
-      <ZoomEndTime time="22380001fs"></ZoomEndTime>
-      <Cursor1Time time="7300000fs"></Cursor1Time>
+      <ZoomStartTime time="8869920fs"></ZoomStartTime>
+      <ZoomEndTime time="11974921fs"></ZoomEndTime>
+      <Cursor1Time time="12344920fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="148"></NameColumnWidth>
+      <NameColumnWidth column_width="128"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
-   <wvobject fp_name="/tb_datapath_1/clk" type="logic">
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/tb_mini_SOC/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/rst_n" type="logic">
-      <obj_property name="ElementShortName">rst_n</obj_property>
-      <obj_property name="ObjectShortName">rst_n</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/clk_div" type="logic">
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/clk_div" type="logic">
       <obj_property name="ElementShortName">clk_div</obj_property>
       <obj_property name="ObjectShortName">clk_div</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/pcOld" type="array">
-      <obj_property name="ElementShortName">pcOld[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pcOld[31:0]</obj_property>
+   <wvobject fp_name="/tb_mini_SOC/rst_n" type="logic">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/instruction" type="array">
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/pc" type="array">
+      <obj_property name="ElementShortName">pc[13:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/instruction" type="array">
       <obj_property name="ElementShortName">instruction[31:0]</obj_property>
       <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/ALUresult" type="array">
-      <obj_property name="ElementShortName">ALUresult[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ALUresult[31:0]</obj_property>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/rA" type="array">
+      <obj_property name="ElementShortName">rA[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rA[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/memData" type="array">
-      <obj_property name="ElementShortName">memData[31:0]</obj_property>
-      <obj_property name="ObjectShortName">memData[31:0]</obj_property>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/rB" type="array">
+      <obj_property name="ElementShortName">rB[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rB[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/u_pc_1/pcSelect" type="array">
-      <obj_property name="ElementShortName">pcSelect[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pcSelect[31:0]</obj_property>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/rW" type="array">
+      <obj_property name="ElementShortName">rW[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rW[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/B" type="array">
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[0]" type="array">
+      <obj_property name="ElementShortName">[0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[8]" type="array">
+      <obj_property name="ElementShortName">[8][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/A" type="array">
+      <obj_property name="ElementShortName">A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/B" type="array">
       <obj_property name="ElementShortName">B[31:0]</obj_property>
       <obj_property name="ObjectShortName">B[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/result" type="array">
-      <obj_property name="ElementShortName">result[31:0]</obj_property>
-      <obj_property name="ObjectShortName">result[31:0]</obj_property>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_ALU_1/B_select" type="array">
+      <obj_property name="ElementShortName">B_select[31:0]</obj_property>
+      <obj_property name="ObjectShortName">B_select[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/u_reg_files_1/register[4]" type="array">
-      <obj_property name="ElementShortName">[4][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_ALU_1/ALUop" type="array">
+      <obj_property name="ElementShortName">ALUop[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUop[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/u_reg_files_1/register[5]" type="array">
-      <obj_property name="ElementShortName">[5][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_ALU_1/ALUresult" type="array">
+      <obj_property name="ElementShortName">ALUresult[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUresult[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/u_reg_files_1/register[2]" type="array">
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[31]" type="array">
+      <obj_property name="ElementShortName">[31][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[2]" type="array">
       <obj_property name="ElementShortName">[2][31:0]</obj_property>
       <obj_property name="ObjectShortName">[2][31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_datapath_1/u_datapath_1/u_reg_files_1/register[7]" type="array">
-      <obj_property name="ElementShortName">[7][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[4]" type="array">
+      <obj_property name="ElementShortName">[4][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[5]" type="array">
+      <obj_property name="ElementShortName">[5][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
    </wvobject>
 </wave_config>

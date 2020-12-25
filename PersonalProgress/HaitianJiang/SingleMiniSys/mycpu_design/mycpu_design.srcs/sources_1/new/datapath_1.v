@@ -95,12 +95,12 @@ pc_1  u_pc_1 (
 // blk_mem_gen_0 Outputs // instructions
 wire  [31:0]  instruction;
 
-blk_mem_gen_0  u_blk_mem_gen_0 (
-                   .clka                    ( clk    ),
-                   .addra                   ( pcOld[15:2]   ),
+inst_rom  u_inst_rom (
+              .clka                    ( clk    ),
+              .addra                   ( pcOld[15:2]   ),
 
-                   .douta                   ( instruction   )
-               );
+              .douta                   ( instruction   )
+          );
 
 assign j_target = instruction[25:0];
 
