@@ -46,7 +46,7 @@ module pc_1(
        );
 
 
-reg [31:0] pc = 0;
+reg [31:0] pc = 32'h00003000;
 assign pcOld = pc;
 
 // J Jal
@@ -94,7 +94,7 @@ begin
         end
 
         default:
-            pcSelect <= 0;
+            pcSelect <= 32'h00003000;
     endcase
 end
 
@@ -105,7 +105,7 @@ always @(posedge clk)
 begin
     if(rst_n == 1) // Xilinx suggest：reset high level effective
     begin
-        pc <= 0;
+        pc <= 32'h00003000;
     end
     else
     begin

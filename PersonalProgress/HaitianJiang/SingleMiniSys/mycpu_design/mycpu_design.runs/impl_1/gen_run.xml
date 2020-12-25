@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1607864549">
-  <File Type="ROUTE-PWR" Name="datapath_1_power_routed.rpt"/>
   <File Type="PA-TCL" Name="datapath_1.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="datapath_1_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="datapath_1_reports.tcl"/>
   <File Type="BITSTR-MSK" Name="datapath_1.msk"/>
-  <File Type="ROUTE-CLK" Name="datapath_1_clock_utilization_routed.rpt"/>
   <File Type="RDI-RDI" Name="datapath_1.vdi"/>
   <File Type="BG-BIT" Name="datapath_1.bit"/>
   <File Type="BG-DRC" Name="datapath_1.drc"/>
@@ -14,33 +11,18 @@
   <File Type="BITSTR-RBT" Name="datapath_1.rbt"/>
   <File Type="BITSTR-NKY" Name="datapath_1.nky"/>
   <File Type="BITSTR-BMM" Name="datapath_1_bd.bmm"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="datapath_1_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-MMI" Name="datapath_1.mmi"/>
   <File Type="BITSTR-SYSDEF" Name="datapath_1.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="datapath_1.ltx"/>
+  <File Type="RCFI_FILE" Name="datapath_1.rcfi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="OPT-DRC" Name="datapath_1_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="datapath_1.hwdef"/>
-  <File Type="PLACE-IO" Name="datapath_1_io_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="datapath_1_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="datapath_1_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="datapath_1_control_sets_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="datapath_1_incremental_reuse_pre_placed.rpt"/>
-  <File Type="ROUTE-DRC" Name="datapath_1_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="datapath_1_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="datapath_1_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="datapath_1_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="datapath_1_route_status.pb"/>
   <File Type="ROUTE-DCP" Name="datapath_1_routed.dcp"/>
   <File Type="ROUTE-ERROR-DCP" Name="datapath_1_routed_error.dcp"/>
   <File Type="ROUTE-BLACKBOX-DCP" Name="datapath_1_routed_bb.dcp"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="datapath_1_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="datapath_1_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="datapath_1_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-BUS-SKEW" Name="datapath_1_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="datapath_1_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="datapath_1_bus_skew_routed.rpx"/>
   <File Type="OPT-DCP" Name="datapath_1_opt.dcp"/>
   <File Type="PLACE-DCP" Name="datapath_1_placed.dcp"/>
   <File Type="PWROPT-DCP" Name="datapath_1_pwropt.dcp"/>
@@ -48,11 +30,7 @@
   <File Type="PHYSOPT-DCP" Name="datapath_1_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="datapath_1_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="datapath_1_postroute_physopt_bb.dcp"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="datapath_1_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="datapath_1_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="datapath_1_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="datapath_1.pdi"/>
-  <File Type="RCFI_FILE" Name="datapath_1.rcfi"/>
   <File Type="CFI_FILE" Name="datapath_1.cfi"/>
   <File Type="RNPI_FILE" Name="datapath_1.rnpi"/>
   <File Type="NPI_FILE" Name="datapath_1.npi"/>
@@ -144,6 +122,6 @@
     <Step Id="write_device_image"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="cpu_clk"/>
-  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_0"/>
   <BlockFileSet Type="BlockSrcs" Name="data_ram"/>
+  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_0"/>
 </GenRun>

@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="8869920fs"></ZoomStartTime>
-      <ZoomEndTime time="11974921fs"></ZoomEndTime>
-      <Cursor1Time time="12344920fs"></Cursor1Time>
+      <ZoomStartTime time="1721100fs"></ZoomStartTime>
+      <ZoomEndTime time="2034101fs"></ZoomEndTime>
+      <Cursor1Time time="115500fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="128"></NameColumnWidth>
+      <NameColumnWidth column_width="123"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="20" />
    <wvobject fp_name="/tb_mini_SOC/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -35,6 +35,10 @@
    <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/pc" type="array">
       <obj_property name="ElementShortName">pc[13:0]</obj_property>
       <obj_property name="ObjectShortName">pc[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_pc_1/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/instruction" type="array">
       <obj_property name="ElementShortName">instruction[31:0]</obj_property>
