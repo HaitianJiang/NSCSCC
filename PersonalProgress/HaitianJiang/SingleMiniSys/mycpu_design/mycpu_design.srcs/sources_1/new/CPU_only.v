@@ -25,12 +25,12 @@ module CPU_only(
            input rst_n,
 
            // connect to instruction ROM
-           output [13:0] pc,
+           output [31:0] pc,
            input [31:0] instruction,
 
            // connect to data RAM
            output MemWrite_out,
-           output [13:0] data_addr,
+           output [31:0] data_addr,
            output [31:0] data_out,
            input  [31:0] memData
        );
@@ -92,7 +92,7 @@ pc_1  u_pc_1 (
           .pcOld                   ( pcOld   )
       );
 
-assign pc = pcOld[15:2];
+assign pc = pcOld;
 
 ///////////////////////////////////
 /******** Instruction ROM ********/
@@ -273,7 +273,7 @@ control_1  u_control_1 (
 
 // connect to data memory
 assign MemWrite_out = MemWrite;
-assign data_addr = ALUresult[15:2];
+assign data_addr = ALUresult;
 assign data_out  = B;
 
 ////////////////////////

@@ -122,6 +122,6 @@
     <Step Id="write_device_image"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="cpu_clk"/>
-  <BlockFileSet Type="BlockSrcs" Name="data_ram"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="data_ram"/>
 </GenRun>

@@ -35,9 +35,9 @@ wire  [31:0]  instruction;
 wire  [31:0]  memData;
 
 // CPU_only Outputs
-wire  [13:0]  pc;
+wire  [31:0]  pc;
 wire  MemWrite_out;
-wire  [13:0]  data_addr;
+wire  [31:0]  data_addr;
 wire  [31:0]  data_out;
 
 CPU_only  u_CPU_only (
@@ -54,6 +54,26 @@ CPU_only  u_CPU_only (
 
 
 ////////////////////////////////////
+////////  instruction MMU  /////////
+////////////////////////////////////
+
+// inst_mmu Inputs
+wire  [31:0]  virtual_addr;
+
+assign virtual_addr = pc;
+
+// inst_mmu Outputs
+wire  [31:0]  real_addr;
+
+inst_mmu  u_inst_mmu (
+              .virtual_addr            ( virtual_addr   ),
+
+              .real_addr               ( real_addr      )
+          );
+
+
+
+////////////////////////////////////
 ////////  instruction ROM  /////////
 ////////////////////////////////////
 
@@ -61,7 +81,7 @@ CPU_only  u_CPU_only (
 // blk_mem_gen_0 Inputs
 wire [13:0] inst_addr;
 
-assign inst_addr = pc;
+assign inst_addr = real_addr[15:2];
 
 // blk_mem_gen_0 Outputs // instructions
 wire  [31:0]  instruction_out;
@@ -88,7 +108,7 @@ wire [13:0] data_addr_in;
 
 assign MemWrite = MemWrite_out;
 assign data_in = data_out;
-assign data_addr_in = data_addr;
+assign data_addr_in = data_addr[15:2];
 
 // output
 wire [31:0] memData_out;
