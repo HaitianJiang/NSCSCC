@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Fri Dec 25 16:18:23 2020
+// Date        : Sun Dec 27 00:04:15 2020
 // Host        : jht running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               d:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/ip/inst_rom/inst_rom_stub.v

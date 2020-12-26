@@ -3,101 +3,37 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_mini_SOC_behav.wdb" id="1">
+      <db_ref path="tb_SOC_IO_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_mini_SOC" />
+            <top_module name="tb_SOC_IO" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1721100fs"></ZoomStartTime>
-      <ZoomEndTime time="2034101fs"></ZoomEndTime>
-      <Cursor1Time time="115500fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="446841fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="123"></NameColumnWidth>
+      <NameColumnWidth column_width="118"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
-   <wvobject fp_name="/tb_mini_SOC/clk" type="logic">
+   <WVObjectSize size="4" />
+   <wvobject fp_name="/tb_SOC_IO/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/clk_div" type="logic">
-      <obj_property name="ElementShortName">clk_div</obj_property>
-      <obj_property name="ObjectShortName">clk_div</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/rst_n" type="logic">
+   <wvobject fp_name="/tb_SOC_IO/rst_n" type="logic">
       <obj_property name="ElementShortName">rst_n</obj_property>
       <obj_property name="ObjectShortName">rst_n</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/pc" type="array">
-      <obj_property name="ElementShortName">pc[13:0]</obj_property>
-      <obj_property name="ObjectShortName">pc[13:0]</obj_property>
+   <wvobject fp_name="/tb_SOC_IO/toggle_switch" type="array">
+      <obj_property name="ElementShortName">toggle_switch[23:0]</obj_property>
+      <obj_property name="ObjectShortName">toggle_switch[23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_pc_1/pc" type="array">
-      <obj_property name="ElementShortName">pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/instruction" type="array">
-      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
-      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/rA" type="array">
-      <obj_property name="ElementShortName">rA[4:0]</obj_property>
-      <obj_property name="ObjectShortName">rA[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/rB" type="array">
-      <obj_property name="ElementShortName">rB[4:0]</obj_property>
-      <obj_property name="ObjectShortName">rB[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/rW" type="array">
-      <obj_property name="ElementShortName">rW[4:0]</obj_property>
-      <obj_property name="ObjectShortName">rW[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[0]" type="array">
-      <obj_property name="ElementShortName">[0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[8]" type="array">
-      <obj_property name="ElementShortName">[8][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[8][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/A" type="array">
-      <obj_property name="ElementShortName">A[31:0]</obj_property>
-      <obj_property name="ObjectShortName">A[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/B" type="array">
-      <obj_property name="ElementShortName">B[31:0]</obj_property>
-      <obj_property name="ObjectShortName">B[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_ALU_1/B_select" type="array">
-      <obj_property name="ElementShortName">B_select[31:0]</obj_property>
-      <obj_property name="ObjectShortName">B_select[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_ALU_1/ALUop" type="array">
-      <obj_property name="ElementShortName">ALUop[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ALUop[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_ALU_1/ALUresult" type="array">
-      <obj_property name="ElementShortName">ALUresult[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ALUresult[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[31]" type="array">
-      <obj_property name="ElementShortName">[31][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[31][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[2]" type="array">
-      <obj_property name="ElementShortName">[2][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[4]" type="array">
-      <obj_property name="ElementShortName">[4][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_mini_SOC/u_mini_SOC/u_CPU_only/u_reg_files_1/register[5]" type="array">
-      <obj_property name="ElementShortName">[5][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+   <wvobject fp_name="/tb_SOC_IO/led_data_out" type="array">
+      <obj_property name="ElementShortName">led_data_out[23:0]</obj_property>
+      <obj_property name="ObjectShortName">led_data_out[23:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -123,7 +123,7 @@ data_ram  u_data_ram (
               .addra                   ( data_addr_in ),
               .dina                    ( data_in       ),
 
-              .douta                   ( memData      )
+              .douta                   ( memData_out   )
           );
 
 

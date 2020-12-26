@@ -11,15 +11,21 @@ INFO: [VRFC 10-311] analyzing module ALU_1
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/CPU_only.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module CPU_only
 INFO: [VRFC 10-2458] undeclared symbol result, assumed default net type wire [D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/CPU_only.v:299]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/SOC_IO.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SOC_IO
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/control_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module control_1
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/inst_mmu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module inst_mmu
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/mini_SOC.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module mini_SOC
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/led_interface.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_interface
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/mem_or_io_ctl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mem_or_io_ctl
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/pc_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pc_1
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/reg_files_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module reg_files_1
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sim_1/new/tb_mini_SOC.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tb_mini_SOC
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/new/toggle_switch_interface.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module toggle_switch_interface
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sim_1/new/tb_SOC_IO.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_SOC_IO
