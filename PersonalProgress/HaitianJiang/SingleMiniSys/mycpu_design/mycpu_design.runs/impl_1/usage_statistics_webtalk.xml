@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<webTalkData  fileName='usage_statistics_webtalk.xml'  majorVersion='1' minorVersion='0' timeStamp='Sun Dec 27 08:46:27 2020'>
+<webTalkData  fileName='usage_statistics_webtalk.xml'  majorVersion='1' minorVersion='0' timeStamp='Sun Dec 27 10:36:14 2020'>
 <section name="__ROOT__" level="0" order="1" description="">
  <section name="software_version_and_target_device" level="1" order="1" description="">
   <keyValuePair key="beta" value="FALSE" description="" />
   <keyValuePair key="build_version" value="2902540" description="" />
-  <keyValuePair key="date_generated" value="Sun Dec 27 08:46:27 2020" description="" />
+  <keyValuePair key="date_generated" value="Sun Dec 27 10:36:14 2020" description="" />
   <keyValuePair key="os_platform" value="WIN64" description="" />
   <keyValuePair key="product_version" value="Vivado v2020.1 (64-bit)" description="" />
   <keyValuePair key="project_id" value="9167f9a57e5e4d959b682d7d8e0085b7" description="" />
-  <keyValuePair key="project_iteration" value="4" description="" />
+  <keyValuePair key="project_iteration" value="8" description="" />
   <keyValuePair key="random_id" value="faa93b073e6555f2ab17c11fe4a0f2a7" description="" />
   <keyValuePair key="registration_id" value="faa93b073e6555f2ab17c11fe4a0f2a7" description="" />
   <keyValuePair key="route_design" value="TRUE" description="" />
@@ -579,10 +579,10 @@
    <keyValuePair key="-verilog_define" value="default::[not_specified]" description="" />
   </section>
   <section name="usage" level="2" order="2" description="">
-   <keyValuePair key="elapsed" value="00:01:32s" description="" />
+   <keyValuePair key="elapsed" value="00:01:44s" description="" />
    <keyValuePair key="hls_ip" value="0" description="" />
-   <keyValuePair key="memory_gain" value="368.434MB" description="" />
-   <keyValuePair key="memory_peak" value="1438.461MB" description="" />
+   <keyValuePair key="memory_gain" value="384.145MB" description="" />
+   <keyValuePair key="memory_peak" value="1452.094MB" description="" />
   </section>
  </section>
  <section name="unisim_transformation" level="1" order="9" description="">
@@ -633,8 +633,8 @@
  <section name="vivado_usage" level="1" order="10" description="">
   <section name="gui_handlers" level="2" order="1" description="">
    <keyValuePair key="basedialog_cancel" value="8" description="" />
-   <keyValuePair key="basedialog_ok" value="111" description="" />
-   <keyValuePair key="basedialog_yes" value="3" description="" />
+   <keyValuePair key="basedialog_ok" value="138" description="" />
+   <keyValuePair key="basedialog_yes" value="5" description="" />
    <keyValuePair key="cmdmsgdialog_messages" value="1" description="" />
    <keyValuePair key="cmdmsgdialog_ok" value="1" description="" />
    <keyValuePair key="cmdmsgdialog_open_messages_view" value="8" description="" />
@@ -643,40 +643,48 @@
    <keyValuePair key="createconstraintsfilepanel_file_name" value="3" description="" />
    <keyValuePair key="createsrcfiledialog_file_name" value="11" description="" />
    <keyValuePair key="expruntreepanel_exp_run_tree_table" value="1" description="" />
-   <keyValuePair key="filesetpanel_file_set_panel_tree" value="178" description="" />
-   <keyValuePair key="flownavigatortreepanel_flow_navigator_tree" value="76" description="" />
+   <keyValuePair key="filesetpanel_file_set_panel_tree" value="186" description="" />
+   <keyValuePair key="flownavigatortreepanel_flow_navigator_tree" value="86" description="" />
    <keyValuePair key="graphicalview_zoom_fit" value="39" description="" />
-   <keyValuePair key="hacgccoefilewidget_browse" value="22" description="" />
+   <keyValuePair key="hacgccoefilewidget_browse" value="25" description="" />
    <keyValuePair key="logmonitor_monitor" value="1" description="" />
+   <keyValuePair key="mainmenumgr_tools" value="2" description="" />
    <keyValuePair key="mainwinmenumgr_layout" value="10" description="" />
    <keyValuePair key="mainwinmenumgr_load" value="2" description="" />
    <keyValuePair key="msgtreepanel_message_view_tree" value="24" description="" />
+   <keyValuePair key="pacommandnames_add_config_memory" value="2" description="" />
    <keyValuePair key="pacommandnames_add_sources" value="9" description="" />
    <keyValuePair key="pacommandnames_auto_update_hier" value="21" description="" />
    <keyValuePair key="pacommandnames_copy_ip" value="1" description="" />
    <keyValuePair key="pacommandnames_goto_netlist_design" value="2" description="" />
-   <keyValuePair key="pacommandnames_open_hardware_manager" value="2" description="" />
-   <keyValuePair key="pacommandnames_open_target_wizard" value="4" description="" />
-   <keyValuePair key="pacommandnames_run_bitgen" value="5" description="" />
+   <keyValuePair key="pacommandnames_open_hardware_manager" value="4" description="" />
+   <keyValuePair key="pacommandnames_open_recent_target" value="2" description="" />
+   <keyValuePair key="pacommandnames_open_target_wizard" value="6" description="" />
+   <keyValuePair key="pacommandnames_program_fpga" value="3" description="" />
+   <keyValuePair key="pacommandnames_run_bitgen" value="9" description="" />
    <keyValuePair key="pacommandnames_set_as_top" value="12" description="" />
    <keyValuePair key="pacommandnames_simulation_live_break" value="3" description="" />
    <keyValuePair key="pacommandnames_simulation_live_restart" value="15" description="" />
-   <keyValuePair key="pacommandnames_simulation_live_run" value="69" description="" />
+   <keyValuePair key="pacommandnames_simulation_live_run" value="72" description="" />
    <keyValuePair key="pacommandnames_simulation_relaunch" value="4" description="" />
    <keyValuePair key="pacommandnames_simulation_run_behavioral" value="20" description="" />
-   <keyValuePair key="pacommandnames_simulation_run_post_implementation_timing" value="2" description="" />
-   <keyValuePair key="paviews_project_summary" value="32" description="" />
-   <keyValuePair key="programdebugtab_open_recently_opened_target" value="2" description="" />
-   <keyValuePair key="programdebugtab_open_target" value="4" description="" />
-   <keyValuePair key="programdebugtab_program_device" value="3" description="" />
-   <keyValuePair key="programfpgadialog_program" value="3" description="" />
+   <keyValuePair key="pacommandnames_simulation_run_post_implementation_timing" value="4" description="" />
+   <keyValuePair key="pacommandnames_write_config_memory_file" value="1" description="" />
+   <keyValuePair key="paviews_project_summary" value="33" description="" />
+   <keyValuePair key="programdebugtab_open_recently_opened_target" value="5" description="" />
+   <keyValuePair key="programdebugtab_open_target" value="7" description="" />
+   <keyValuePair key="programdebugtab_program_device" value="6" description="" />
+   <keyValuePair key="programfpgadialog_program" value="6" description="" />
    <keyValuePair key="progressdialog_background" value="1" description="" />
+   <keyValuePair key="progressdialog_cancel" value="1" description="" />
    <keyValuePair key="projecttab_reload" value="5" description="" />
+   <keyValuePair key="rdicommands_custom_commands" value="1" description="" />
    <keyValuePair key="rdicommands_delete" value="5" description="" />
    <keyValuePair key="rdiviews_waveform_viewer" value="65" description="" />
    <keyValuePair key="removesourcesdialog_also_delete" value="3" description="" />
+   <keyValuePair key="searchcommandcomponent_quick_access" value="1" description="" />
    <keyValuePair key="signaltreepanel_signal_tree_table" value="80" description="" />
-   <keyValuePair key="simpleoutputproductdialog_generate_output_products_immediately" value="28" description="" />
+   <keyValuePair key="simpleoutputproductdialog_generate_output_products_immediately" value="31" description="" />
    <keyValuePair key="simulationliverunforcomp_specify_time_and_units" value="4" description="" />
    <keyValuePair key="simulationobjectspanel_simulation_objects_tree_table" value="59" description="" />
    <keyValuePair key="simulationscopespanel_simulate_scope_table" value="58" description="" />
@@ -685,10 +693,15 @@
    <keyValuePair key="srcmenu_ip_hierarchy" value="22" description="" />
    <keyValuePair key="stalerundialog_open_design" value="1" description="" />
    <keyValuePair key="stalerundialog_run_synthesis" value="1" description="" />
-   <keyValuePair key="syntheticagettingstartedview_recent_projects" value="11" description="" />
+   <keyValuePair key="syntheticagettingstartedview_recent_projects" value="12" description="" />
    <keyValuePair key="targetchooserpanel_add_xilinx_virtual_cable_as_hardware" value="1" description="" />
-   <keyValuePair key="taskbanner_close" value="43" description="" />
+   <keyValuePair key="taskbanner_close" value="47" description="" />
    <keyValuePair key="waveformnametree_waveform_name_tree" value="12" description="" />
+   <keyValuePair key="writecfgmemfiledialog_daisy_chain_configuration_file" value="2" description="" />
+   <keyValuePair key="writecfgmemfiledialog_format" value="1" description="" />
+   <keyValuePair key="writecfgmemfiledialog_load_bitstream_files" value="1" description="" />
+   <keyValuePair key="writecfgmemfiledialog_memory_part" value="1" description="" />
+   <keyValuePair key="writecfgmemfiledialog_specify_configuration_filename" value="5" description="" />
   </section>
   <section name="java_command_handlers" level="2" order="2" description="">
    <keyValuePair key="addsources" value="9" description="" />
@@ -697,31 +710,32 @@
    <keyValuePair key="customizecore" value="2" description="" />
    <keyValuePair key="editcopy" value="1" description="" />
    <keyValuePair key="editdelete" value="5" description="" />
-   <keyValuePair key="fileexit" value="11" description="" />
-   <keyValuePair key="launchopentarget" value="4" description="" />
-   <keyValuePair key="launchprogramfpga" value="3" description="" />
-   <keyValuePair key="openhardwaremanager" value="3" description="" />
-   <keyValuePair key="recustomizecore" value="28" description="" />
-   <keyValuePair key="runbitgen" value="6" description="" />
-   <keyValuePair key="runimplementation" value="8" description="" />
+   <keyValuePair key="fileexit" value="12" description="" />
+   <keyValuePair key="launchopentarget" value="6" description="" />
+   <keyValuePair key="launchprogramfpga" value="6" description="" />
+   <keyValuePair key="openhardwaremanager" value="7" description="" />
+   <keyValuePair key="recustomizecore" value="31" description="" />
+   <keyValuePair key="runbitgen" value="10" description="" />
+   <keyValuePair key="runimplementation" value="12" description="" />
    <keyValuePair key="runschematic" value="14" description="" />
-   <keyValuePair key="runsynthesis" value="14" description="" />
+   <keyValuePair key="runsynthesis" value="17" description="" />
    <keyValuePair key="savedesign" value="4" description="" />
    <keyValuePair key="settopnode" value="12" description="" />
    <keyValuePair key="showview" value="14" description="" />
    <keyValuePair key="simulationbreak" value="3" description="" />
    <keyValuePair key="simulationrelaunch" value="4" description="" />
    <keyValuePair key="simulationrestart" value="16" description="" />
-   <keyValuePair key="simulationrun" value="22" description="" />
-   <keyValuePair key="simulationrunfortime" value="67" description="" />
+   <keyValuePair key="simulationrun" value="24" description="" />
+   <keyValuePair key="simulationrunfortime" value="70" description="" />
    <keyValuePair key="viewlayoutcmd" value="2" description="" />
-   <keyValuePair key="viewtaskimplementation" value="2" description="" />
+   <keyValuePair key="viewtaskimplementation" value="4" description="" />
    <keyValuePair key="viewtaskrtlanalysis" value="1" description="" />
    <keyValuePair key="viewtasksynthesis" value="5" description="" />
    <keyValuePair key="waveformsaveconfiguration" value="9" description="" />
+   <keyValuePair key="writecfgmemfile" value="1" description="" />
   </section>
   <section name="other_data" level="2" order="3" description="">
-   <keyValuePair key="guimode" value="27" description="" />
+   <keyValuePair key="guimode" value="28" description="" />
   </section>
   <section name="project_data" level="2" order="4" description="">
    <keyValuePair key="constraintsetcount" value="1" description="" />
@@ -730,13 +744,13 @@
    <keyValuePair key="currentsynthesisrun" value="synth_1" description="" />
    <keyValuePair key="default_library" value="xil_defaultlib" description="" />
    <keyValuePair key="designmode" value="RTL" description="" />
-   <keyValuePair key="export_simulation_activehdl" value="53" description="" />
-   <keyValuePair key="export_simulation_ies" value="53" description="" />
-   <keyValuePair key="export_simulation_modelsim" value="53" description="" />
-   <keyValuePair key="export_simulation_questa" value="53" description="" />
-   <keyValuePair key="export_simulation_riviera" value="53" description="" />
-   <keyValuePair key="export_simulation_vcs" value="53" description="" />
-   <keyValuePair key="export_simulation_xsim" value="53" description="" />
+   <keyValuePair key="export_simulation_activehdl" value="57" description="" />
+   <keyValuePair key="export_simulation_ies" value="57" description="" />
+   <keyValuePair key="export_simulation_modelsim" value="57" description="" />
+   <keyValuePair key="export_simulation_questa" value="57" description="" />
+   <keyValuePair key="export_simulation_riviera" value="57" description="" />
+   <keyValuePair key="export_simulation_vcs" value="57" description="" />
+   <keyValuePair key="export_simulation_xsim" value="57" description="" />
    <keyValuePair key="implstrategy" value="Vivado Implementation Defaults" description="" />
    <keyValuePair key="launch_simulation_activehdl" value="0" description="" />
    <keyValuePair key="launch_simulation_ies" value="0" description="" />
@@ -744,7 +758,7 @@
    <keyValuePair key="launch_simulation_questa" value="0" description="" />
    <keyValuePair key="launch_simulation_riviera" value="0" description="" />
    <keyValuePair key="launch_simulation_vcs" value="0" description="" />
-   <keyValuePair key="launch_simulation_xsim" value="161" description="" />
+   <keyValuePair key="launch_simulation_xsim" value="163" description="" />
    <keyValuePair key="simulator_language" value="Mixed" description="" />
    <keyValuePair key="srcsetcount" value="14" description="" />
    <keyValuePair key="synthesisstrategy" value="Vivado Synthesis Defaults" description="" />
@@ -756,8 +770,8 @@
  </section>
  <section name="xsim" level="1" order="11" description="">
   <section name="command_line_options" level="2" order="1" description="">
-   <keyValuePair key="-sim_mode" value="default::behavioral" description="" />
-   <keyValuePair key="-sim_type" value="default::" description="" />
+   <keyValuePair key="-sim_mode" value="post-implementation" description="" />
+   <keyValuePair key="-sim_type" value="timing" description="" />
   </section>
  </section>
 </section>

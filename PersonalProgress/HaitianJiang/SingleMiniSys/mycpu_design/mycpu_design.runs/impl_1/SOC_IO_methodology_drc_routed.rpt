@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Sun Dec 27 08:43:05 2020
+| Date         : Sun Dec 27 10:33:54 2020
 | Host         : jht running 64-bit major release  (build 9200)
 | Command      : report_methodology -file SOC_IO_methodology_drc_routed.rpt -pb SOC_IO_methodology_drc_routed.pb -rpx SOC_IO_methodology_drc_routed.rpx
 | Design       : SOC_IO
@@ -20,7 +20,7 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: checkpoint_SOC_IO
+          Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
              Violations found: 126
