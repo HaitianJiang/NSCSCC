@@ -1,26 +1,25 @@
+; NOTE Jal addresse: MARS is different from my CPU.
+;      J instruction has the same problem.
+;      beq and bne instructions use offset addresse,
+;      they don't have this problem.
+; initialization:   pc = 0x00003000
+;       instruction memory start: 0x0c00 (pc[15:2])
 memory_initialization_radix = 16;
 memory_initialization_vector =
-20082000,
-200d2054,
-8dad0000,
-240a0001,
-ad0a0000,
-ad0a0004,
-340e0002,
-01ae4822,
-340f0001,
-012f602a,
-118f0007,
-8d040000,
-8d050004,
-0c000016,
-ad020008,
-21080004,
-2129ffff,
-08000009,
-3c0eabcd,
-21080008,
-ad0e0000,
-08000015,
-00851020,
-03e00008;
+3c01ffff,
+3421fc70,
+00010825,
+8c220000,
+24210002,
+8c230000,
+00031c00,
+00432021,
+3c01ffff,
+3421fc60,
+00012825,
+aca40000,
+24a50002,
+00042402,
+00042200,
+aca40000,
+1000ffef;

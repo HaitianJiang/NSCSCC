@@ -18,5 +18,6 @@ ori $5,$0,0xfffffc60
 sw  $4,($5)
 addiu $5,$5,2
 srl $4,$4,16
+sll $4,$4,8
 sw  $4,($5)
 beq $0,$0,s

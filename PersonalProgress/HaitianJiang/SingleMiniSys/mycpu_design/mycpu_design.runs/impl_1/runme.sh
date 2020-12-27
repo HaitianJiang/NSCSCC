@@ -42,6 +42,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .write_bitstream.begin.rst
-EAStep vivado -log datapath_1.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source datapath_1.tcl -notrace
+EAStep vivado -log SOC_IO.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source SOC_IO.tcl -notrace
 
 

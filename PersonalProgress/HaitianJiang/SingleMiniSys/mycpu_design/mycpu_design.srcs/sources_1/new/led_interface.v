@@ -9,8 +9,8 @@
 // Project Name:
 // Target Devices:
 // Tool Versions:
-// Description:
-//
+// Description: Non-programmable interface chip.
+//              Its port target is fixed.
 // Dependencies:
 //
 // Revision:

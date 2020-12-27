@@ -56,13 +56,13 @@ SOC_IO  u_SOC_IO (
 initial
 begin
     #2000
-    toggle_switch = 24'b11110001_10101010_00001100;
-    #1000
-    toggle_switch = 24'b1111;
-    #1000
-    toggle_switch = 24'b1000001111;
-    #1000
-    toggle_switch = 24'b111100010101111;
+    toggle_switch = 24'hF1AA0C;
+    #2000
+    toggle_switch = 24'hFFFF;
+    #2000
+    toggle_switch = 24'hABCD;
+    #2000
+    toggle_switch = 24'h1ACBF;
 
 end
 
