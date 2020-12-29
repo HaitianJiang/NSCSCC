@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Mon Dec 28 15:24:09 2020
+# Process ID: 32112
+# Current directory: D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.runs/uart_connect_pc_synth_1
+# Command line: vivado.exe -log uart_connect_pc.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_connect_pc.tcl
+# Log file: D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.runs/uart_connect_pc_synth_1/uart_connect_pc.vds
+# Journal file: D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.runs/uart_connect_pc_synth_1\vivado.jou
+#-----------------------------------------------------------
+source uart_connect_pc.tcl -notrace

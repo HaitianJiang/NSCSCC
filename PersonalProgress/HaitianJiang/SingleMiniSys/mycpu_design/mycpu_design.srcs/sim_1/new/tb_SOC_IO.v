@@ -58,11 +58,7 @@ begin
     #2000
     toggle_switch = 24'hF1AA0C;
     #2000
-    toggle_switch = 24'hFFFF;
-    #2000
-    toggle_switch = 24'hABCD;
-    #2000
-    toggle_switch = 24'h1ACBF;
+    toggle_switch = 24'h1;
 
 end
 

@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
--- Date        : Sun Dec 27 10:28:36 2020
+-- Date        : Tue Dec 29 09:15:02 2020
 -- Host        : jht running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               d:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.srcs/sources_1/ip/inst_rom/inst_rom_sim_netlist.vhdl
@@ -467,7 +467,9 @@ entity inst_rom_blk_mem_gen_prim_wrapper_init is
   port (
     douta : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 0 to 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of inst_rom_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
@@ -588,7 +590,8 @@ begin
       ADDRBWRADDR(13 downto 0) => B"00000000000000",
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
-      DIADI(15 downto 0) => B"0000000000000000",
+      DIADI(15 downto 1) => B"000000000000000",
+      DIADI(0) => dina(0),
       DIBDI(15 downto 0) => B"0000000000000000",
       DIPADIP(1 downto 0) => B"00",
       DIPBDIP(1 downto 0) => B"00",
@@ -605,7 +608,8 @@ begin
       RSTRAMB => '0',
       RSTREGARSTREG => '0',
       RSTREGB => '0',
-      WEA(1 downto 0) => B"00",
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(3 downto 0) => B"0000"
     );
 end STRUCTURE;
@@ -617,7 +621,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized0\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized0\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -827,7 +833,8 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 2) => B"000000000000000000000000000000",
+      DIADI(1 downto 0) => dina(1 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
@@ -849,7 +856,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -861,7 +871,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized1\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized1\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -1071,7 +1083,8 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 2) => B"000000000000000000000000000000",
+      DIADI(1 downto 0) => dina(1 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
@@ -1093,7 +1106,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -1107,7 +1123,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized10\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized10\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -1317,9 +1335,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -1340,7 +1360,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -1354,7 +1377,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized11\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized11\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -1564,9 +1589,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -1587,7 +1614,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -1601,7 +1631,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized12\ is
     DOPADOP : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized12\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -1811,9 +1843,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => DOADO(7 downto 0),
@@ -1834,7 +1868,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -1848,7 +1885,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized13\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized13\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -2058,9 +2097,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -2081,7 +2122,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -2095,7 +2139,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized2\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized2\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -2305,9 +2351,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -2328,7 +2376,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -2342,7 +2393,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized3\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     addra_12_sp_1 : out STD_LOGIC;
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized3\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -2554,9 +2607,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -2577,7 +2632,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1\: unisim.vcomponents.LUT2
@@ -2600,7 +2658,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized4\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     addra_13_sp_1 : out STD_LOGIC;
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized4\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -2812,9 +2872,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -2835,7 +2897,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__0\: unisim.vcomponents.LUT2
@@ -2858,7 +2923,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized5\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized5\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -3068,9 +3135,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -3091,7 +3160,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -3105,7 +3177,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized6\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized6\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -3315,9 +3389,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -3338,7 +3414,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -3352,7 +3431,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized7\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized7\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -3562,9 +3643,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -3585,7 +3668,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -3599,7 +3685,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized8\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized8\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -3809,9 +3897,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -3832,7 +3922,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -3846,7 +3939,9 @@ entity \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized9\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_wrapper_init__parameterized9\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -4056,9 +4151,11 @@ begin
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\,
-      DIADI(31 downto 0) => B"00000000000000000000000000000000",
+      DIADI(31 downto 8) => B"000000000000000000000000",
+      DIADI(7 downto 0) => dina(7 downto 0),
       DIBDI(31 downto 0) => B"00000000000000000000000000000000",
-      DIPADIP(3 downto 0) => B"0000",
+      DIPADIP(3 downto 1) => B"000",
+      DIPADIP(0) => dina(8),
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
       DOADO(7 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7 downto 0),
@@ -4079,7 +4176,10 @@ begin
       RSTREGARSTREG => '0',
       RSTREGB => '0',
       SBITERR => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED\,
-      WEA(3 downto 0) => B"0000",
+      WEA(3) => wea(0),
+      WEA(2) => wea(0),
+      WEA(1) => wea(0),
+      WEA(0) => wea(0),
       WEBWE(7 downto 0) => B"00000000"
     );
 end STRUCTURE;
@@ -4091,7 +4191,9 @@ entity inst_rom_blk_mem_gen_prim_width is
   port (
     douta : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 0 to 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of inst_rom_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
@@ -4103,7 +4205,9 @@ begin
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
-      douta(0) => douta(0)
+      dina(0) => dina(0),
+      douta(0) => douta(0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4114,7 +4218,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized0\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized0\ : entity is "blk_mem_gen_prim_width";
@@ -4126,7 +4232,9 @@ begin
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
-      douta(1 downto 0) => douta(1 downto 0)
+      dina(1 downto 0) => dina(1 downto 0),
+      douta(1 downto 0) => douta(1 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4137,7 +4245,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized1\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized1\ : entity is "blk_mem_gen_prim_width";
@@ -4149,7 +4259,9 @@ begin
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
-      douta(1 downto 0) => douta(1 downto 0)
+      dina(1 downto 0) => dina(1 downto 0),
+      douta(1 downto 0) => douta(1 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4162,7 +4274,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized10\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized10\ : entity is "blk_mem_gen_prim_width";
@@ -4176,7 +4290,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(0)
+      dina(8 downto 0) => dina(8 downto 0),
+      ena_array(0) => ena_array(0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4189,7 +4305,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized11\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized11\ : entity is "blk_mem_gen_prim_width";
@@ -4203,7 +4321,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\,
       addra(11 downto 0) => addra(11 downto 0),
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(8 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4216,7 +4336,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized12\ is
     DOPADOP : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized12\ : entity is "blk_mem_gen_prim_width";
@@ -4230,7 +4352,9 @@ begin
       DOADO(7 downto 0) => DOADO(7 downto 0),
       DOPADOP(0) => DOPADOP(0),
       addra(11 downto 0) => addra(11 downto 0),
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(8 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4243,7 +4367,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized13\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized13\ : entity is "blk_mem_gen_prim_width";
@@ -4257,7 +4383,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(0)
+      dina(8 downto 0) => dina(8 downto 0),
+      ena_array(0) => ena_array(0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4270,7 +4398,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized2\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized2\ : entity is "blk_mem_gen_prim_width";
@@ -4284,7 +4414,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(0)
+      dina(8 downto 0) => dina(8 downto 0),
+      ena_array(0) => ena_array(0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4297,7 +4429,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized3\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     addra_12_sp_1 : out STD_LOGIC;
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized3\ : entity is "blk_mem_gen_prim_width";
@@ -4313,7 +4447,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(13 downto 0) => addra(13 downto 0),
       addra_12_sp_1 => addra_12_sn_1,
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(8 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4326,7 +4462,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized4\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     addra_13_sp_1 : out STD_LOGIC;
     clka : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 13 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized4\ : entity is "blk_mem_gen_prim_width";
@@ -4342,7 +4480,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(13 downto 0) => addra(13 downto 0),
       addra_13_sp_1 => addra_13_sn_1,
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(8 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4355,7 +4495,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized5\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized5\ : entity is "blk_mem_gen_prim_width";
@@ -4369,7 +4511,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(0)
+      dina(8 downto 0) => dina(8 downto 0),
+      ena_array(0) => ena_array(0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4382,7 +4526,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized6\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized6\ : entity is "blk_mem_gen_prim_width";
@@ -4396,7 +4542,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(0)
+      dina(8 downto 0) => dina(8 downto 0),
+      ena_array(0) => ena_array(0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4409,7 +4557,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized7\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized7\ : entity is "blk_mem_gen_prim_width";
@@ -4423,7 +4573,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\,
       addra(11 downto 0) => addra(11 downto 0),
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(8 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4436,7 +4588,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized8\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized8\ : entity is "blk_mem_gen_prim_width";
@@ -4450,7 +4604,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\,
       addra(11 downto 0) => addra(11 downto 0),
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(8 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4463,7 +4619,9 @@ entity \inst_rom_blk_mem_gen_prim_width__parameterized9\ is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \inst_rom_blk_mem_gen_prim_width__parameterized9\ : entity is "blk_mem_gen_prim_width";
@@ -4477,7 +4635,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(0)
+      dina(8 downto 0) => dina(8 downto 0),
+      ena_array(0) => ena_array(0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4488,7 +4648,9 @@ entity inst_rom_blk_mem_gen_generic_cstr is
   port (
     douta : out STD_LOGIC_VECTOR ( 31 downto 0 );
     addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    clka : in STD_LOGIC
+    clka : in STD_LOGIC;
+    dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of inst_rom_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
@@ -4731,7 +4893,9 @@ begin
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
-      douta(0) => douta(0)
+      dina(0) => dina(0),
+      douta(0) => douta(0),
+      wea(0) => wea(0)
     );
 \ramloop[10].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized9\
      port map (
@@ -4746,7 +4910,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[10].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(3)
+      dina(8 downto 0) => dina(22 downto 14),
+      ena_array(0) => ena_array(3),
+      wea(0) => wea(0)
     );
 \ramloop[11].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized10\
      port map (
@@ -4761,7 +4927,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[11].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(0)
+      dina(8 downto 0) => dina(31 downto 23),
+      ena_array(0) => ena_array(0),
+      wea(0) => wea(0)
     );
 \ramloop[12].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized11\
      port map (
@@ -4776,7 +4944,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[12].ram.r_n_8\,
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ => \ramloop[4].ram.r_n_9\,
       addra(11 downto 0) => addra(11 downto 0),
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(31 downto 23),
+      wea(0) => wea(0)
     );
 \ramloop[13].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized12\
      port map (
@@ -4791,7 +4961,9 @@ begin
       DOADO(0) => \ramloop[13].ram.r_n_7\,
       DOPADOP(0) => \ramloop[13].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(31 downto 23),
+      wea(0) => wea(0)
     );
 \ramloop[14].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized13\
      port map (
@@ -4806,19 +4978,25 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[14].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(3)
+      dina(8 downto 0) => dina(31 downto 23),
+      ena_array(0) => ena_array(3),
+      wea(0) => wea(0)
     );
 \ramloop[1].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized0\
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
-      douta(1 downto 0) => douta(2 downto 1)
+      dina(1 downto 0) => dina(2 downto 1),
+      douta(1 downto 0) => douta(2 downto 1),
+      wea(0) => wea(0)
     );
 \ramloop[2].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized1\
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
-      douta(1 downto 0) => douta(4 downto 3)
+      dina(1 downto 0) => dina(4 downto 3),
+      douta(1 downto 0) => douta(4 downto 3),
+      wea(0) => wea(0)
     );
 \ramloop[3].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized2\
      port map (
@@ -4833,7 +5011,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[3].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(0)
+      dina(8 downto 0) => dina(13 downto 5),
+      ena_array(0) => ena_array(0),
+      wea(0) => wea(0)
     );
 \ramloop[4].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized3\
      port map (
@@ -4848,7 +5028,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[4].ram.r_n_8\,
       addra(13 downto 0) => addra(13 downto 0),
       addra_12_sp_1 => \ramloop[4].ram.r_n_9\,
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(13 downto 5),
+      wea(0) => wea(0)
     );
 \ramloop[5].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized4\
      port map (
@@ -4863,7 +5045,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[5].ram.r_n_8\,
       addra(13 downto 0) => addra(13 downto 0),
       addra_13_sp_1 => \ramloop[5].ram.r_n_9\,
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(13 downto 5),
+      wea(0) => wea(0)
     );
 \ramloop[6].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized5\
      port map (
@@ -4878,7 +5062,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[6].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(3)
+      dina(8 downto 0) => dina(13 downto 5),
+      ena_array(0) => ena_array(3),
+      wea(0) => wea(0)
     );
 \ramloop[7].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized6\
      port map (
@@ -4893,7 +5079,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[7].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena_array(0) => ena_array(0)
+      dina(8 downto 0) => dina(22 downto 14),
+      ena_array(0) => ena_array(0),
+      wea(0) => wea(0)
     );
 \ramloop[8].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized7\
      port map (
@@ -4908,7 +5096,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[8].ram.r_n_8\,
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ => \ramloop[4].ram.r_n_9\,
       addra(11 downto 0) => addra(11 downto 0),
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(22 downto 14),
+      wea(0) => wea(0)
     );
 \ramloop[9].ram.r\: entity work.\inst_rom_blk_mem_gen_prim_width__parameterized8\
      port map (
@@ -4923,7 +5113,9 @@ begin
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[9].ram.r_n_8\,
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ => \ramloop[5].ram.r_n_9\,
       addra(11 downto 0) => addra(11 downto 0),
-      clka => clka
+      clka => clka,
+      dina(8 downto 0) => dina(22 downto 14),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4934,7 +5126,9 @@ entity inst_rom_blk_mem_gen_top is
   port (
     douta : out STD_LOGIC_VECTOR ( 31 downto 0 );
     addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    clka : in STD_LOGIC
+    clka : in STD_LOGIC;
+    dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of inst_rom_blk_mem_gen_top : entity is "blk_mem_gen_top";
@@ -4946,7 +5140,9 @@ begin
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
-      douta(31 downto 0) => douta(31 downto 0)
+      dina(31 downto 0) => dina(31 downto 0),
+      douta(31 downto 0) => douta(31 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -4957,7 +5153,9 @@ entity inst_rom_blk_mem_gen_v8_4_4_synth is
   port (
     douta : out STD_LOGIC_VECTOR ( 31 downto 0 );
     addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    clka : in STD_LOGIC
+    clka : in STD_LOGIC;
+    dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of inst_rom_blk_mem_gen_v8_4_4_synth : entity is "blk_mem_gen_v8_4_4_synth";
@@ -4969,7 +5167,9 @@ begin
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
-      douta(31 downto 0) => douta(31 downto 0)
+      dina(31 downto 0) => dina(31 downto 0),
+      douta(31 downto 0) => douta(31 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -5089,7 +5289,7 @@ entity inst_rom_blk_mem_gen_v8_4_4 is
   attribute C_EN_SLEEP_PIN : integer;
   attribute C_EN_SLEEP_PIN of inst_rom_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_EST_POWER_SUMMARY : string;
-  attribute C_EST_POWER_SUMMARY of inst_rom_blk_mem_gen_v8_4_4 : entity is "Estimated Power for IP     :     12.7204 mW";
+  attribute C_EST_POWER_SUMMARY of inst_rom_blk_mem_gen_v8_4_4 : entity is "Estimated Power for IP     :     13.776802 mW";
   attribute C_FAMILY : string;
   attribute C_FAMILY of inst_rom_blk_mem_gen_v8_4_4 : entity is "artix7";
   attribute C_HAS_AXI_ID : integer;
@@ -5133,7 +5333,7 @@ entity inst_rom_blk_mem_gen_v8_4_4 is
   attribute C_LOAD_INIT_FILE : integer;
   attribute C_LOAD_INIT_FILE of inst_rom_blk_mem_gen_v8_4_4 : entity is 1;
   attribute C_MEM_TYPE : integer;
-  attribute C_MEM_TYPE of inst_rom_blk_mem_gen_v8_4_4 : entity is 3;
+  attribute C_MEM_TYPE of inst_rom_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;
   attribute C_MUX_PIPELINE_STAGES of inst_rom_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_PRIM_TYPE : integer;
@@ -5325,7 +5525,9 @@ inst_blk_mem_gen: entity work.inst_rom_blk_mem_gen_v8_4_4_synth
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
-      douta(31 downto 0) => douta(31 downto 0)
+      dina(31 downto 0) => dina(31 downto 0),
+      douta(31 downto 0) => douta(31 downto 0),
+      wea(0) => wea(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -5335,7 +5537,9 @@ use UNISIM.VCOMPONENTS.ALL;
 entity inst_rom is
   port (
     clka : in STD_LOGIC;
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 13 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     douta : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
@@ -5416,7 +5620,7 @@ architecture STRUCTURE of inst_rom is
   attribute C_EN_SLEEP_PIN : integer;
   attribute C_EN_SLEEP_PIN of U0 : label is 0;
   attribute C_EST_POWER_SUMMARY : string;
-  attribute C_EST_POWER_SUMMARY of U0 : label is "Estimated Power for IP     :     12.7204 mW";
+  attribute C_EST_POWER_SUMMARY of U0 : label is "Estimated Power for IP     :     13.776802 mW";
   attribute C_FAMILY : string;
   attribute C_FAMILY of U0 : label is "artix7";
   attribute C_HAS_AXI_ID : integer;
@@ -5460,7 +5664,7 @@ architecture STRUCTURE of inst_rom is
   attribute C_LOAD_INIT_FILE : integer;
   attribute C_LOAD_INIT_FILE of U0 : label is 1;
   attribute C_MEM_TYPE : integer;
-  attribute C_MEM_TYPE of U0 : label is 3;
+  attribute C_MEM_TYPE of U0 : label is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;
   attribute C_MUX_PIPELINE_STAGES of U0 : label is 0;
   attribute C_PRIM_TYPE : integer;
@@ -5527,7 +5731,9 @@ architecture STRUCTURE of inst_rom is
   attribute x_interface_parameter : string;
   attribute x_interface_parameter of clka : signal is "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1";
   attribute x_interface_info of addra : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR";
+  attribute x_interface_info of dina : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA DIN";
   attribute x_interface_info of douta : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT";
+  attribute x_interface_info of wea : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA WE";
 begin
 U0: entity work.inst_rom_blk_mem_gen_v8_4_4
      port map (
@@ -5537,7 +5743,7 @@ U0: entity work.inst_rom_blk_mem_gen_v8_4_4
       clkb => '0',
       dbiterr => NLW_U0_dbiterr_UNCONNECTED,
       deepsleep => '0',
-      dina(31 downto 0) => B"00000000000000000000000000000000",
+      dina(31 downto 0) => dina(31 downto 0),
       dinb(31 downto 0) => B"00000000000000000000000000000000",
       douta(31 downto 0) => douta(31 downto 0),
       doutb(31 downto 0) => NLW_U0_doutb_UNCONNECTED(31 downto 0),
@@ -5592,7 +5798,7 @@ U0: entity work.inst_rom_blk_mem_gen_v8_4_4
       sbiterr => NLW_U0_sbiterr_UNCONNECTED,
       shutdown => '0',
       sleep => '0',
-      wea(0) => '0',
+      wea(0) => wea(0),
       web(0) => '0'
     );
 end STRUCTURE;

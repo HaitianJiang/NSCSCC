@@ -98,3 +98,13 @@ set_property PACKAGE_PIN T5 [get_ports {toggle_switch[3]}]
 set_property PACKAGE_PIN T4 [get_ports {toggle_switch[2]}]
 set_property PACKAGE_PIN R4 [get_ports {toggle_switch[1]}]
 set_property PACKAGE_PIN W4 [get_ports {toggle_switch[0]}]
+
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets start_pg_IBUF]
+
+set_property IOSTANDARD LVCMOS33 [get_ports rx]
+set_property IOSTANDARD LVCMOS33 [get_ports tx]
+set_property IOSTANDARD LVCMOS33 [get_ports start_pg]
+set_property PACKAGE_PIN P4 [get_ports start_pg]
+set_property PACKAGE_PIN Y19 [get_ports rx]
+set_property PACKAGE_PIN V18 [get_ports tx]
+

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1609036175">
-  <File Type="PA-TCL" Name="SOC_IO.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="SOC_IO_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="SOC_IO_reports.tcl"/>
-  <File Type="RDS-RDS" Name="SOC_IO.vds"/>
-  <File Type="RDS-UTIL" Name="SOC_IO_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="SOC_IO_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="SOC_IO.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="SOC_IO_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="SOC_IO_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1609204528">
+  <File Type="PA-TCL" Name="SOC_IO_UART.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="SOC_IO_UART_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="SOC_IO_UART_reports.tcl"/>
+  <File Type="RDS-RDS" Name="SOC_IO_UART.vds"/>
+  <File Type="RDS-UTIL" Name="SOC_IO_UART_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="SOC_IO_UART_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="SOC_IO_UART.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="SOC_IO_UART_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="SOC_IO_UART_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU_1.v">
@@ -60,6 +60,20 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/programram.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/programrom.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/reg_files_1.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -74,22 +88,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/SOC_IO_UART.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/SOC_IO.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/datapath_1.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/mini_SOC.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -111,7 +117,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="SOC_IO"/>
+      <Option Name="TopModule" Val="SOC_IO_UART"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -138,6 +144,7 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="cpu_clk"/>
+  <BlockFileSet Type="BlockSrcs" Name="uart_connect_pc"/>
   <BlockFileSet Type="BlockSrcs" Name="data_ram"/>
   <BlockFileSet Type="BlockSrcs" Name="inst_rom"/>
 </GenRun>

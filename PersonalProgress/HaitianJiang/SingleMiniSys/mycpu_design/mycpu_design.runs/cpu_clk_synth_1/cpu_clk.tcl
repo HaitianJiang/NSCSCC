@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "cpu_clk_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
@@ -87,6 +86,8 @@ set_property parent.project_path D:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSC
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_repo_paths d:/myCollege/ComputerSystem/SEU/orgnizationtrain/minisys/IP/SEU_CSE_507_user_uart_bmpg_1.3 [current_project]
+update_ip_catalog
 set_property ip_output_repo d:/myCollege/ComputerSystem/NSCSCC/NSCSCC/NSCSCC/PersonalProgress/HaitianJiang/SingleMiniSys/mycpu_design/mycpu_design.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }

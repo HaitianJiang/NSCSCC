@@ -43,13 +43,13 @@ module CPU_only(
 // reg   clk;
 
 // cpu_clk Outputs
-wire  clk_div; // 20Mhz
+// wire  clk = clk; // 20Mhz
 
-cpu_clk  u_cpu_clk (
-             .clk_in1                 ( clk        ),
+// cpu_clk  u_cpu_clk (
+//              .clk_in1                 ( clk        ),
 
-             .clk_out1                ( clk_div    )
-         );
+//              .clk_out1                ( clk    )
+//          );
 
 //////////////////////
 /******** PC ********/
@@ -72,7 +72,7 @@ wire Jal_in;
 wire  [31:0]  pcOld;
 
 pc_1  u_pc_1 (
-          .clk                     ( clk_div     ),
+          .clk                     ( clk     ),
           .rst_n                   ( rst_n   ),
 
           .pcOrigin                ( pcOld   ),
@@ -134,7 +134,7 @@ wire  [31:0]  B;    // rt
 assign JrPC = A;
 
 reg_files_1  u_reg_files_1 (
-                 .clk                     ( clk_div         ),
+                 .clk                     ( clk         ),
                  .rst_n                   ( rst_n       ),
                  .rA                      ( instruction[25:21]  ),
                  .rB                      ( instruction[20:16]  ),
